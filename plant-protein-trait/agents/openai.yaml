@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plant Protein to Trait"
+  short_description: "Traceable protein evidence and isolated trait inference"
+  default_prompt: "Use $plant-protein-trait to analyze my single plant protein with separate targeted and blind trait inference."

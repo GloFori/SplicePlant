@@ -1,0 +1,148 @@
+{
+  "release": "0.1.0",
+  "date": "2026-10-14",
+  "kind": "source skill and standalone Python workflow",
+  "real_biological_example": "deferred by maintainer",
+  "validation": {
+    "offline_tests": 33,
+    "local_python_versions": [
+      "3.12.14",
+      "3.14.4"
+    ],
+    "skill_validator": "passed",
+    "synthetic_smoke": "passed",
+    "live_service_validation": "not_run",
+    "hosted_ci": "not_run"
+  },
+  "files": {
+    ".gitattributes": {
+      "bytes": 45,
+      "sha256": "8d75fbed0329d55480242ea79c61cbdd3da312c700298bfba9572b81ec325cc6"
+    },
+    ".github/workflows/ci.yml": {
+      "bytes": 1648,
+      "sha256": "66ecee4ce5646482cd51354f8c5c92bf98ed367bb6a0cbdf1abdd6eb1a4cfa13"
+    },
+    ".gitignore": {
+      "bytes": 161,
+      "sha256": "1f054efa2c4a24cbd145f33849011272030fdd598811ca52dea050b7ec522d0b"
+    },
+    "agents/openai.yaml": {
+      "bytes": 261,
+      "sha256": "c6b797b45bbc642a1b388292278a7d5d9e72d9558a3bac0b9c2e123f63132964"
+    },
+    "CHANGELOG.md": {
+      "bytes": 1602,
+      "sha256": "8e4dd3e54c1100da00b82d5e74fe37053f38a6d8112315542024b736c00a399e"
+    },
+    "docs/AUDIT.md": {
+      "bytes": 7918,
+      "sha256": "57c4f454c786eaa4ad7e3fd17b7c00982569d3a283ae2727dd6bd80eae7ee40e"
+    },
+    "docs/GITHUB_HANDOFF.md": {
+      "bytes": 3222,
+      "sha256": "e14630c5504343bf48bea35c380bb959f6453e669fef06d18cb6d8543c4c1cfd"
+    },
+    "docs/original_source_manifest.json": {
+      "bytes": 1070,
+      "sha256": "198c6072530cf885f6f81c83c7d9bf6c6a6e488e0f9894ab0be3388446b9a513"
+    },
+    "docs/VALIDATION.md": {
+      "bytes": 3744,
+      "sha256": "07e42ec601f76cc6757e064ed559de681ec743612eaa2bf41ae4b2a0028895a5"
+    },
+    "examples/README.md": {
+      "bytes": 1756,
+      "sha256": "0e1a36d71b4566d0daaeb5960451483f2799aee5cb63be5bc930d49e837dfc38"
+    },
+    "NOTICE.md": {
+      "bytes": 1209,
+      "sha256": "83109969b7df3edfc3161657ed5f45f12b1798f9f42b459de49e03cad22adb59"
+    },
+    "pyproject.toml": {
+      "bytes": 564,
+      "sha256": "ef046f097ff816d8867128245a669a46f5414bfe2fb6bd040b87612ef6292848"
+    },
+    "README.md": {
+      "bytes": 7723,
+      "sha256": "28865c02e68e5e0acbd1b781aca81e797138c53e18c98b4c963bf4a10bff6e82"
+    },
+    "README.zh-CN.md": {
+      "bytes": 3539,
+      "sha256": "ec0ad5768c7b88da1d5bcfebf64cc13f8dd068da33b5b0b22e6ed6164d7b86b6"
+    },
+    "references/interpretation.md": {
+      "bytes": 3981,
+      "sha256": "59e31eeb7f0df4d8df0e9ddad2c6b68b925ae72b6f27709587334aec6796beda"
+    },
+    "references/schemas.md": {
+      "bytes": 5539,
+      "sha256": "91d420570c0cf913d81a70df9765fcb0cd86c2fc62be1c373e575280284492ab"
+    },
+    "references/workflow.md": {
+      "bytes": 8884,
+      "sha256": "fcc8366d44d6eecee364b5a9b375ef83f74384d42e402e7c6246520620d4e526"
+    },
+    "scripts/4_cotton.py": {
+      "bytes": 187,
+      "sha256": "55ae1add89a635df6077d5212a09555e0315b9e5d53be5015c9b2c3d1e954082"
+    },
+    "scripts/check_environment.py": {
+      "bytes": 767,
+      "sha256": "8f8cff4200f7254e9b1053c78db1fe8aa28e8f533d425655acdc90ff8b6d362d"
+    },
+    "scripts/check_sequence.py": {
+      "bytes": 929,
+      "sha256": "817f2f6f9955c98abaf0ae30260e3282e68454fd5d8202ab8fed4a74990f6fd0"
+    },
+    "scripts/new_llm.py": {
+      "bytes": 194,
+      "sha256": "7fc5e709092becb7e1ace104a2d6e8f15704fb2766b18c65df1f43ad1a7b8772"
+    },
+    "scripts/plant_protein_trait/__init__.py": {
+      "bytes": 83,
+      "sha256": "7bf6a9a774a77c096b26a8fcbbb3d2768686bc1fbdb0758db46378fc47870fd3"
+    },
+    "scripts/plant_protein_trait/annotation.py": {
+      "bytes": 13560,
+      "sha256": "6d2da4fe6104e962d7591c005d655ecf70061c2738e5ab3ce8a68f250a308de4"
+    },
+    "scripts/plant_protein_trait/core.py": {
+      "bytes": 3930,
+      "sha256": "dd1bb07aab9e2fdf7839bf914ea18b43b100104d7fce5448c215ac42303df989"
+    },
+    "scripts/plant_protein_trait/inference.py": {
+      "bytes": 22963,
+      "sha256": "a2f4367537cd23b96a07caa7fe0716fa6ee8889bea9afcaa28e9131269dc115f"
+    },
+    "scripts/plant_protein_trait/net.py": {
+      "bytes": 2081,
+      "sha256": "e67d1e40d341f2873f989794103ba513a6557c4cc9c021f158374632a52f515b"
+    },
+    "scripts/plant_protein_trait/parsers.py": {
+      "bytes": 9376,
+      "sha256": "0adda7aea0b2b2cfe86e2627d1ac5861fce5c17ee3fb859d369ca5d8e043bb4e"
+    },
+    "scripts/plant_protein_trait/report.py": {
+      "bytes": 4726,
+      "sha256": "96d95e8bc08aba04ac17e8b5a3d272c5a2738e610baca91a303e7182f81eb1b6"
+    },
+    "scripts/smoke_test.py": {
+      "bytes": 1388,
+      "sha256": "e4265c9e7b1363cd6c9683df23071203d612664360da4483fa147a703038ceb4"
+    },
+    "scripts/summarize.py": {
+      "bytes": 106,
+      "sha256": "b286ef795beda2caea49973d644284263f9852ca90787c2eee67b70f775ca3e1"
+    },
+    "SKILL.md": {
+      "bytes": 4383,
+      "sha256": "7311f53afd0b911ebf011ee20cd44a119431449bb5e6b0ea5e56a9e0b025b728"
+    },
+    "tests/test_pipeline.py": {
+      "bytes": 19435,
+      "sha256": "78908edd4c1b47b352446b3d97a0e5dee8cb58a6d271756f749afcb31858d9bb"
+    }
+  },
+  "note": "This manifest excludes itself. Check the external archive SHA256 for archive integrity."
+}

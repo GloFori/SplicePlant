@@ -1,0 +1,16 @@
+NOTICE.md
+README.md
+pyproject.toml
+scripts/plant_protein_trait/__init__.py
+scripts/plant_protein_trait/annotation.py
+scripts/plant_protein_trait/core.py
+scripts/plant_protein_trait/inference.py
+scripts/plant_protein_trait/net.py
+scripts/plant_protein_trait/parsers.py
+scripts/plant_protein_trait/report.py
+scripts/plant_protein_trait.egg-info/PKG-INFO
+scripts/plant_protein_trait.egg-info/SOURCES.txt
+scripts/plant_protein_trait.egg-info/dependency_links.txt
+scripts/plant_protein_trait.egg-info/entry_points.txt
+scripts/plant_protein_trait.egg-info/top_level.txt
+tests/test_pipeline.py

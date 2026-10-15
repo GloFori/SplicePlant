@@ -1,0 +1,37 @@
+{
+  "1_afdb_seq_search_download.py": {
+    "sha256": "05a3e0f24c23a0f9c46b6012224f049dfb449517f8f59d0814cef1af840b6a0d",
+    "bytes": 12788,
+    "lines": 298
+  },
+  "2_af3_cif_to_pdb.py": {
+    "sha256": "703ef640601ddab2f30e5573394b8d0f546a9ffe9cf9342381a3d52cbdc72193",
+    "bytes": 4312,
+    "lines": 149
+  },
+  "3_map_af3_pdbs.py": {
+    "sha256": "21085f3230f77ad932a722d2a3cd74ce1a11b05f53a3a8304482bd4e24292d4f",
+    "bytes": 3152,
+    "lines": 83
+  },
+  "4_cotton.py": {
+    "sha256": "9f1e2360a5f0c0062f74dd2354a0ad041ad87864ce6fbb6b311b577d7a9c9b19",
+    "bytes": 34385,
+    "lines": 910
+  },
+  "llm.py": {
+    "sha256": "2372809d5aba3e1d56e4231896e6308f6ae88b587f8f46618fe5c3a45ea9188c",
+    "bytes": 36886,
+    "lines": 915
+  },
+  "new_llm.py": {
+    "sha256": "4a22fbd546b4ab0c5064ead62e0fe6271849d02feb1f253fa558da183734fec1",
+    "bytes": 63707,
+    "lines": 1548
+  },
+  "prepare_sequences.py": {
+    "sha256": "2ebfc8412fbd7402147a08b56de6b8fe536c5d47f3c86f9a53db89a093153fcd",
+    "bytes": 2148,
+    "lines": 57
+  }
+}

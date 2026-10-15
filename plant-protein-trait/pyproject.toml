@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plant-protein-trait"
+version = "0.1.0"
+description = "Auditable single-protein annotation and isolated targeted/blind trait inference"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+ppt-annotate = "plant_protein_trait.annotation:main"
+ppt-infer = "plant_protein_trait.inference:main"
+ppt-summarize = "plant_protein_trait.report:main"
+
+[tool.setuptools.packages.find]
+where = ["scripts"]
+include = ["plant_protein_trait*"]
