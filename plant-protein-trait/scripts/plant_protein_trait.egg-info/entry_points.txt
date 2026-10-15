@@ -1,4 +1,0 @@
-[console_scripts]
-ppt-annotate = plant_protein_trait.annotation:main
-ppt-infer = plant_protein_trait.inference:main
-ppt-summarize = plant_protein_trait.report:main
