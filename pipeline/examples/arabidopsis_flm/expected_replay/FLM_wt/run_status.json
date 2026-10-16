@@ -1,0 +1,8 @@
+{
+  "status": "completed",
+  "stages": {
+    "blast": "completed_hits",
+    "domains": "completed",
+    "go": "completed"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "blast": {
+    "database": "refseq_protein",
+    "program_version": "BLASTP 2.16.0+",
+    "query_binding": "length and all aligned query residues validated",
+    "caution": "Identity supports homology, not orthology or experimental function"
+  },
+  "database_release_supplied": null,
+  "interpro_member_databases": [
+    [
+      "FUNFAM",
+      "4.3.0"
+    ],
+    [
+      "GENE3D",
+      "4.3.0"
+    ],
+    [
+      "PANTHER",
+      "18.0"
+    ],
+    [
+      "PFAM",
+      "36.0"
+    ],
+    [
+      "PRINTS",
+      "42.0"
+    ],
+    [
+      "PROSITE_PROFILES",
+      "2023_05"
+    ],
+    [
+      "SMART",
+      "9.0"
+    ],
+    [
+      "SUPERFAMILY",
+      "1.75"
+    ]
+  ]
+}

@@ -1,0 +1,516 @@
+{
+  "FLM_alt": {
+    "seq_id": "FLM_alt",
+    "length": 85,
+    "sequence_sha256": "cf0c70d799d70e70161b4d0f799da7de899a4919528bf2712923cf977db74dbb",
+    "blast_hits": [
+      {
+        "accession": "NP_001321574",
+        "hit_id": "ref|NP_001321574.1|",
+        "description": "K-box region and MADS-box transcription factor family protein [Arabidopsis thaliana]",
+        "organism": "Arabidopsis thaliana",
+        "subject_length": 176,
+        "identity_pct": 98.79518072289157,
+        "query_coverage_pct": 97.6470588235294,
+        "e_value": 1.48748e-49,
+        "bit_score": 164.466,
+        "query_coverage_union_pct": 97.6470588235294,
+        "statistics_scope": "best HSP; union coverage reported separately",
+        "hsps": [
+          {
+            "query_start": 1,
+            "query_end": 83,
+            "subject_start": 1,
+            "subject_end": 83,
+            "alignment_length": 83,
+            "identities": 82,
+            "identity_pct": 98.79518072289157,
+            "query_coverage_pct": 97.6470588235294,
+            "e_value": 1.48748e-49,
+            "bit_score": 164.466,
+            "raw_score": 415.0,
+            "query_aligned": "MGRRKIEIKRIENKSSRQVTFSKRRNGLIDKARQLSILCESSVAVVVVSASGKLYDSSSGDDISKIIDRYEIQHADELRALFL",
+            "subject_aligned": "MGRRKIEIKRIENKSSRQVTFSKRRNGLIDKARQLSILCESSVAVVVVSASGKLYDSSSGDDISKIIDRYEIQHADELRALDL"
+          }
+        ]
+      },
+      {
+        "accession": "NP_177833",
+        "hit_id": "ref|NP_177833.3|",
+        "description": "K-box region and MADS-box transcription factor family protein [Arabidopsis thaliana]",
+        "organism": "Arabidopsis thaliana",
+        "subject_length": 196,
+        "identity_pct": 98.79518072289157,
+        "query_coverage_pct": 97.6470588235294,
+        "e_value": 5.11278e-49,
+        "bit_score": 163.696,
+        "query_coverage_union_pct": 97.6470588235294,
+        "statistics_scope": "best HSP; union coverage reported separately",
+        "hsps": [
+          {
+            "query_start": 1,
+            "query_end": 83,
+            "subject_start": 1,
+            "subject_end": 83,
+            "alignment_length": 83,
+            "identities": 82,
+            "identity_pct": 98.79518072289157,
+            "query_coverage_pct": 97.6470588235294,
+            "e_value": 5.11278e-49,
+            "bit_score": 163.696,
+            "raw_score": 413.0,
+            "query_aligned": "MGRRKIEIKRIENKSSRQVTFSKRRNGLIDKARQLSILCESSVAVVVVSASGKLYDSSSGDDISKIIDRYEIQHADELRALFL",
+            "subject_aligned": "MGRRKIEIKRIENKSSRQVTFSKRRNGLIDKARQLSILCESSVAVVVVSASGKLYDSSSGDDISKIIDRYEIQHADELRALDL"
+          }
+        ]
+      },
+      {
+        "accession": "NP_974160",
+        "hit_id": "ref|NP_974160.2|",
+        "description": "K-box region and MADS-box transcription factor family protein [Arabidopsis thaliana]",
+        "organism": "Arabidopsis thaliana",
+        "subject_length": 173,
+        "identity_pct": 98.79518072289157,
+        "query_coverage_pct": 97.6470588235294,
+        "e_value": 3.79312e-49,
+        "bit_score": 163.31,
+        "query_coverage_union_pct": 97.6470588235294,
+        "statistics_scope": "best HSP; union coverage reported separately",
+        "hsps": [
+          {
+            "query_start": 1,
+            "query_end": 83,
+            "subject_start": 1,
+            "subject_end": 83,
+            "alignment_length": 83,
+            "identities": 82,
+            "identity_pct": 98.79518072289157,
+            "query_coverage_pct": 97.6470588235294,
+            "e_value": 3.79312e-49,
+            "bit_score": 163.31,
+            "raw_score": 412.0,
+            "query_aligned": "MGRRKIEIKRIENKSSRQVTFSKRRNGLIDKARQLSILCESSVAVVVVSASGKLYDSSSGDDISKIIDRYEIQHADELRALFL",
+            "subject_aligned": "MGRRKIEIKRIENKSSRQVTFSKRRNGLIDKARQLSILCESSVAVVVVSASGKLYDSSSGDDISKIIDRYEIQHADELRALDL"
+          }
+        ]
+      },
+      {
+        "accession": "NP_001321570",
+        "hit_id": "ref|NP_001321570.1|",
+        "description": "K-box region and MADS-box transcription factor family protein [Arabidopsis thaliana]",
+        "organism": "Arabidopsis thaliana",
+        "subject_length": 223,
+        "identity_pct": 98.79518072289157,
+        "query_coverage_pct": 97.6470588235294,
+        "e_value": 2.45312e-48,
+        "bit_score": 162.925,
+        "query_coverage_union_pct": 97.6470588235294,
+        "statistics_scope": "best HSP; union coverage reported separately",
+        "hsps": [
+          {
+            "query_start": 1,
+            "query_end": 83,
+            "subject_start": 1,
+            "subject_end": 83,
+            "alignment_length": 83,
+            "identities": 82,
+            "identity_pct": 98.79518072289157,
+            "query_coverage_pct": 97.6470588235294,
+            "e_value": 2.45312e-48,
+            "bit_score": 162.925,
+            "raw_score": 411.0,
+            "query_aligned": "MGRRKIEIKRIENKSSRQVTFSKRRNGLIDKARQLSILCESSVAVVVVSASGKLYDSSSGDDISKIIDRYEIQHADELRALFL",
+            "subject_aligned": "MGRRKIEIKRIENKSSRQVTFSKRRNGLIDKARQLSILCESSVAVVVVSASGKLYDSSSGDDISKIIDRYEIQHADELRALDL"
+          }
+        ]
+      },
+      {
+        "accession": "XP_020890340",
+        "hit_id": "ref|XP_020890340.1|",
+        "description": "agamous-like MADS-box protein AGL27 isoform X1 [Arabidopsis lyrata subsp. lyrata]",
+        "organism": "Arabidopsis lyrata subsp. lyrata",
+        "subject_length": 196,
+        "identity_pct": 96.3855421686747,
+        "query_coverage_pct": 97.6470588235294,
+        "e_value": 5.78477e-48,
+        "bit_score": 160.999,
+        "query_coverage_union_pct": 97.6470588235294,
+        "statistics_scope": "best HSP; union coverage reported separately",
+        "hsps": [
+          {
+            "query_start": 1,
+            "query_end": 83,
+            "subject_start": 1,
+            "subject_end": 83,
+            "alignment_length": 83,
+            "identities": 80,
+            "identity_pct": 96.3855421686747,
+            "query_coverage_pct": 97.6470588235294,
+            "e_value": 5.78477e-48,
+            "bit_score": 160.999,
+            "raw_score": 406.0,
+            "query_aligned": "MGRRKIEIKRIENKSSRQVTFSKRRNGLIDKARQLSILCESSVAVVVVSASGKLYDSSSGDDISKIIDRYEIQHADELRALFL",
+            "subject_aligned": "MGRRKIEIKRIENKSSRQVTFSKRRNGLIDKARQLSILCESSVAVVVVSASGKLYESSSGDDISKIIDRYEIQHADELKALDL"
+          }
+        ]
+      }
+    ],
+    "domains": [
+      {
+        "accession": "G3DSA:3.40.1810.10",
+        "name": null,
+        "database": "GENE3D",
+        "database_version": "4.3.0",
+        "interpro_accession": "IPR036879",
+        "interpro_name": "TF_MADSbox_sf",
+        "e_value": 1.5e-22,
+        "score": 81.2,
+        "locations": [
+          {
+            "start": 13,
+            "end": 80,
+            "representative": false,
+            "hmmStart": 1,
+            "hmmEnd": 60,
+            "hmmLength": 73,
+            "hmmBounds": "COMPLETE",
+            "evalue": 1.8e-22,
+            "score": 81.0,
+            "envelopeStart": 13,
+            "envelopeEnd": 80,
+            "postProcessed": true,
+            "location-fragments": [
+              {
+                "start": 13,
+                "end": 80,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "annotation_method": "InterProScan exact query"
+      },
+      {
+        "accession": "G3DSA:3.40.1810.10:FF:000020",
+        "name": "MADS-box protein FLOWERING LOCUS C",
+        "database": "FUNFAM",
+        "database_version": "4.3.0",
+        "interpro_accession": null,
+        "interpro_name": null,
+        "e_value": 3.1e-44,
+        "score": 150.6,
+        "locations": [
+          {
+            "start": 13,
+            "end": 82,
+            "representative": false,
+            "hmmStart": 1,
+            "hmmEnd": 69,
+            "hmmLength": 70,
+            "hmmBounds": "N_TERMINAL_COMPLETE",
+            "evalue": 3.7e-44,
+            "score": 150.4,
+            "envelopeStart": 13,
+            "envelopeEnd": 82,
+            "postProcessed": true,
+            "location-fragments": [
+              {
+                "start": 13,
+                "end": 82,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "annotation_method": "InterProScan exact query"
+      },
+      {
+        "accession": "PF00319",
+        "name": "SRF-TF",
+        "database": "PFAM",
+        "database_version": "36.0",
+        "interpro_accession": "IPR002100",
+        "interpro_name": "TF_MADSbox",
+        "e_value": 1.6e-19,
+        "score": 80.4,
+        "locations": [
+          {
+            "start": 10,
+            "end": 55,
+            "representative": false,
+            "hmmStart": 1,
+            "hmmEnd": 46,
+            "hmmLength": 48,
+            "hmmBounds": "N_TERMINAL_COMPLETE",
+            "evalue": 2.5e-19,
+            "score": 79.8,
+            "envelopeStart": 10,
+            "envelopeEnd": 57,
+            "postProcessed": true,
+            "location-fragments": [
+              {
+                "start": 10,
+                "end": 55,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "annotation_method": "InterProScan exact query"
+      },
+      {
+        "accession": "PR00404",
+        "name": "MADSDOMAIN",
+        "database": "PRINTS",
+        "database_version": "42.0",
+        "interpro_accession": "IPR002100",
+        "interpro_name": "TF_MADSbox",
+        "e_value": 4e-24,
+        "score": null,
+        "locations": [
+          {
+            "start": 3,
+            "end": 23,
+            "representative": false,
+            "pvalue": 2.61e-13,
+            "score": 68.15,
+            "motifNumber": 1,
+            "location-fragments": [
+              {
+                "start": 3,
+                "end": 23,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          },
+          {
+            "start": 23,
+            "end": 38,
+            "representative": false,
+            "pvalue": 2.91e-09,
+            "score": 62.2,
+            "motifNumber": 2,
+            "location-fragments": [
+              {
+                "start": 23,
+                "end": 38,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          },
+          {
+            "start": 38,
+            "end": 59,
+            "representative": false,
+            "pvalue": 3.65e-09,
+            "score": 40.02,
+            "motifNumber": 3,
+            "location-fragments": [
+              {
+                "start": 38,
+                "end": 59,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "annotation_method": "InterProScan exact query"
+      },
+      {
+        "accession": "PS50066",
+        "name": "MADS_BOX_2",
+        "database": "PROSITE_PROFILES",
+        "database_version": "2023_05",
+        "interpro_accession": "IPR002100",
+        "interpro_name": "TF_MADSbox",
+        "e_value": null,
+        "score": null,
+        "locations": [
+          {
+            "start": 1,
+            "end": 61,
+            "representative": true,
+            "score": 28.20248,
+            "alignment": "MGRRKIEIKRIENKSSRQVTFSKRRNGLIDKARQLSILCESSVAVVVVSASGKLYDSSSGD",
+            "location-fragments": [
+              {
+                "start": 1,
+                "end": 61,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "annotation_method": "InterProScan exact query"
+      },
+      {
+        "accession": "PTHR48019",
+        "name": "SERUM RESPONSE FACTOR HOMOLOG",
+        "database": "PANTHER",
+        "database_version": "18.0",
+        "interpro_accession": "IPR050142",
+        "interpro_name": "MADS-box/MEF2_TF",
+        "e_value": 1.7e-31,
+        "score": 121.6,
+        "locations": [
+          {
+            "start": 1,
+            "end": 73,
+            "representative": false,
+            "hmmStart": 1,
+            "hmmEnd": 71,
+            "hmmLength": 0,
+            "hmmBounds": "N_TERMINAL_COMPLETE",
+            "envelopeStart": 1,
+            "envelopeEnd": 82,
+            "location-fragments": [
+              {
+                "start": 1,
+                "end": 73,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "annotation_method": "InterProScan exact query"
+      },
+      {
+        "accession": "SM00432",
+        "name": "madsneu2",
+        "database": "SMART",
+        "database_version": "9.0",
+        "interpro_accession": "IPR002100",
+        "interpro_name": "TF_MADSbox",
+        "e_value": 4.7e-33,
+        "score": 125.8,
+        "locations": [
+          {
+            "start": 1,
+            "end": 60,
+            "representative": false,
+            "hmmStart": 1,
+            "hmmEnd": 60,
+            "hmmLength": 60,
+            "hmmBounds": "COMPLETE",
+            "evalue": 4.7e-33,
+            "score": 125.8,
+            "location-fragments": [
+              {
+                "start": 1,
+                "end": 60,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "annotation_method": "InterProScan exact query"
+      },
+      {
+        "accession": "SSF55455",
+        "name": "SRF-like",
+        "database": "SUPERFAMILY",
+        "database_version": "1.75",
+        "interpro_accession": "IPR036879",
+        "interpro_name": "TF_MADSbox_sf",
+        "e_value": 1.26e-26,
+        "score": null,
+        "locations": [
+          {
+            "start": 1,
+            "end": 73,
+            "representative": false,
+            "hmmLength": 85,
+            "location-fragments": [
+              {
+                "start": 1,
+                "end": 73,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "annotation_method": "InterProScan exact query"
+      }
+    ],
+    "go_terms": [
+      {
+        "id": "GO:0000978",
+        "name": "RNA polymerase II cis-regulatory region sequence-specific DNA binding",
+        "category": "MOLECULAR_FUNCTION",
+        "annotation_method": "InterPro2GO/computational transfer",
+        "experimental_on_query": false,
+        "source_signatures": [
+          "PTHR48019"
+        ]
+      },
+      {
+        "id": "GO:0000981",
+        "name": "DNA-binding transcription factor activity, RNA polymerase II-specific",
+        "category": "MOLECULAR_FUNCTION",
+        "annotation_method": "InterPro2GO/computational transfer",
+        "experimental_on_query": false,
+        "source_signatures": [
+          "PTHR48019"
+        ]
+      },
+      {
+        "id": "GO:0003677",
+        "name": "DNA binding",
+        "category": "MOLECULAR_FUNCTION",
+        "annotation_method": "InterPro2GO/computational transfer",
+        "experimental_on_query": false,
+        "source_signatures": [
+          "G3DSA:3.40.1810.10",
+          "PF00319",
+          "PR00404",
+          "PS50066",
+          "SM00432",
+          "SSF55455"
+        ]
+      },
+      {
+        "id": "GO:0006357",
+        "name": "regulation of transcription by RNA polymerase II",
+        "category": "BIOLOGICAL_PROCESS",
+        "annotation_method": "InterPro2GO/computational transfer",
+        "experimental_on_query": false,
+        "source_signatures": [
+          "PTHR48019"
+        ]
+      },
+      {
+        "id": "GO:0046983",
+        "name": "protein dimerization activity",
+        "category": "MOLECULAR_FUNCTION",
+        "annotation_method": "InterPro2GO/computational transfer",
+        "experimental_on_query": false,
+        "source_signatures": [
+          "G3DSA:3.40.1810.10",
+          "PF00319",
+          "PR00404",
+          "PS50066",
+          "SM00432",
+          "SSF55455"
+        ]
+      }
+    ],
+    "structure": {
+      "status": "missing",
+      "avg_plddt": null,
+      "tm_score": null,
+      "foldseek": "not_run",
+      "reason": "No target structure provided"
+    },
+    "status": {
+      "blast": "completed_hits",
+      "domains": "completed",
+      "go": "completed"
+    },
+    "blast_metadata": {
+      "database": "refseq_protein",
+      "program_version": "BLASTP 2.16.0+",
+      "query_binding": "length and all aligned query residues validated",
+      "caution": "Identity supports homology, not orthology or experimental function"
+    }
+  }
+}

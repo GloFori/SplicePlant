@@ -1,0 +1,3 @@
+seq_id	blast_score	domain_score	go_score	structure_score	final_score	final_score_with_structure	pass
+FLM_wt	100	100	0	93.88951086956521	80.0	89.38895108695652	True
+FLM_alt	100	100	0	94.50508160237388	80.0	89.45050816023739	True

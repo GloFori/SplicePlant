@@ -1,0 +1,6 @@
+Single-protein evidence collection. No weighted functional/trait score is computed.
+{
+  "blast": "completed_hits",
+  "domains": "completed",
+  "go": "completed"
+}

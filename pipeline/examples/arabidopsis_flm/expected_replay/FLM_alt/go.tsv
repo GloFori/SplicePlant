@@ -1,0 +1,6 @@
+id	name	category	annotation_method	experimental_on_query
+GO:0000978	RNA polymerase II cis-regulatory region sequence-specific DNA binding	MOLECULAR_FUNCTION	InterPro2GO/computational transfer	False
+GO:0000981	DNA-binding transcription factor activity, RNA polymerase II-specific	MOLECULAR_FUNCTION	InterPro2GO/computational transfer	False
+GO:0003677	DNA binding	MOLECULAR_FUNCTION	InterPro2GO/computational transfer	False
+GO:0006357	regulation of transcription by RNA polymerase II	BIOLOGICAL_PROCESS	InterPro2GO/computational transfer	False
+GO:0046983	protein dimerization activity	MOLECULAR_FUNCTION	InterPro2GO/computational transfer	False

@@ -1,0 +1,9 @@
+{
+  "FLM_alt": {
+    "status": "missing",
+    "avg_plddt": null,
+    "tm_score": null,
+    "foldseek": "not_run",
+    "reason": "No target structure provided"
+  }
+}
