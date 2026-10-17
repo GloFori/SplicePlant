@@ -1,0 +1,8 @@
+{
+  "source_file": "C:\\Users\\Administrator\\Documents\\Codex\\2026-09-22\\files-mentioned-by-the-user-plm\\outputs\\SplicePlant-repository-update\\runs\\software_tests\\5d33932eba944d329ee376bd4b24d8ff\\fasta\\two.records.fa",
+  "record_header": "first",
+  "strand_policy": "as-is",
+  "window": 21,
+  "stride": 1,
+  "unscored_label": 2
+}

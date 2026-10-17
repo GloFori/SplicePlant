@@ -1,0 +1,184 @@
+{
+  "repository": "https://github.com/GloFori/SplicePlant",
+  "branch": "pre-pipline",
+  "base_commit": "1631e9d970565ffd7f23d47895339417f5721e0c",
+  "scope": "Non-pipeline files only; overlay repository root",
+  "published_to_github": false,
+  "files": [
+    {
+      "path": ".gitignore",
+      "action": "add",
+      "sha256": "44d0bd596843e885da2ea076ae9ceb5369316b6b895f59121f376af432caa2be",
+      "bytes": 115,
+      "original_git_blob": null
+    },
+    {
+      "path": "attribution/compute_contributions.py",
+      "action": "replace",
+      "sha256": "2d1e8ba8360b44986830e190ba62aee3d4cc0ac85d16cf5fc4ed5c32e7b21b4c",
+      "bytes": 13570,
+      "original_git_blob": "ea8da2a87df6df40712ea8d6095f11aeae31c15b"
+    },
+    {
+      "path": "attribution/README.md",
+      "action": "add",
+      "sha256": "640823b51edb1355e47cbe1ce68cd76077e8659323d437e5906a02584eb9882d",
+      "bytes": 3277,
+      "original_git_blob": null
+    },
+    {
+      "path": "data/demo/toy_dna.fa",
+      "action": "add",
+      "sha256": "84edd3299bd8d69e39b5b1f9cd09372ce281cd285651b7e7da491bd0b8d34d32",
+      "bytes": 73,
+      "original_git_blob": null
+    },
+    {
+      "path": "data/download_assets.py",
+      "action": "add",
+      "sha256": "b6b367e25dfebfe7eedd9cf92d25d714665b0057bd3f591d60aa0246be65b3f5",
+      "bytes": 5014,
+      "original_git_blob": null
+    },
+    {
+      "path": "data/Explanation",
+      "action": "replace",
+      "sha256": "43779eb9b47c0105e205d604cffe1d694cb9c65706e7d998ad84fc726742f265",
+      "bytes": 308,
+      "original_git_blob": "d1c6f394c5ddd3df0a1b4e1dcca7e2c3dd16c8c1"
+    },
+    {
+      "path": "data/README.md",
+      "action": "add",
+      "sha256": "005f5fc805017e56b3b66c289ee2debda97458dc7ae8bb2d866bb8b37b06a831",
+      "bytes": 4203,
+      "original_git_blob": null
+    },
+    {
+      "path": "docs/MAINTENANCE.md",
+      "action": "add",
+      "sha256": "9a613cfed3d16a0a9d698097ae6963952d5e34190564e3363bd3e09e74855c77",
+      "bytes": 4482,
+      "original_git_blob": null
+    },
+    {
+      "path": "docs/REPRODUCE.md",
+      "action": "add",
+      "sha256": "a4e5fb359e38751a52f241de3a378a1141286eabf7ce1cfb18c77ce156fb6c31",
+      "bytes": 5779,
+      "original_git_blob": null
+    },
+    {
+      "path": "docs/validation.json",
+      "action": "add",
+      "sha256": "e99b244d727972887eaec2c526ce4ef5b53ed5e250b6948f29a09603c6f73fd7",
+      "bytes": 720,
+      "original_git_blob": null
+    },
+    {
+      "path": "docs/zenodo_assets.json",
+      "action": "add",
+      "sha256": "1e2cddc5e1f506772405c00c7d149923e1561e49bf0331c8f54205126de18927",
+      "bytes": 4714,
+      "original_git_blob": null
+    },
+    {
+      "path": "inference/predict.py",
+      "action": "replace",
+      "sha256": "80768ad22f7a130fb79952b00b121799c5810bb95ae95d7d8260ccbf531800bf",
+      "bytes": 4677,
+      "original_git_blob": "c63c14ee3b74c3c79f79639616da169dad005b53"
+    },
+    {
+      "path": "inference/predict_labels.py",
+      "action": "replace",
+      "sha256": "c03b339e73b4f4ee43cc3d4034052915c06cfc8920796a7e7cc54e4b9fc6e70c",
+      "bytes": 8207,
+      "original_git_blob": "041e0e74166b01f841290570b7dccaef2f8d6654"
+    },
+    {
+      "path": "inference/README.md",
+      "action": "add",
+      "sha256": "7fe22127530682c358c031d96ee189c6ae7407eec93ed4d87567f0d53f6153fb",
+      "bytes": 4762,
+      "original_git_blob": null
+    },
+    {
+      "path": "inference/score_sequence_per_base.py",
+      "action": "replace",
+      "sha256": "a8198e962168731675396f66d943907771563e3a6c55fafc1917f537de7c1deb",
+      "bytes": 12648,
+      "original_git_blob": "25f69b4fd3ef3353b202ff614bf728d2bc3d3c55"
+    },
+    {
+      "path": "README.md",
+      "action": "replace",
+      "sha256": "08717c1e41f06733b0a4e99c560768731326aa57a788ac00a1dcff2ec6680a46",
+      "bytes": 4603,
+      "original_git_blob": "91ae6fb482816666fff11f73542767b79af54911"
+    },
+    {
+      "path": "requirements.txt",
+      "action": "add",
+      "sha256": "673e3d043dfa0fb59ad48bf8f6587d3fcaba40e48f3775f4d5eef217f6aa118c",
+      "bytes": 481,
+      "original_git_blob": null
+    },
+    {
+      "path": "spliceplant/__init__.py",
+      "action": "add",
+      "sha256": "cceb3154441ff72e769688a2fd352b97ef4f86750b7c4700db19f6a6a9024fa6",
+      "bytes": 59,
+      "original_git_blob": null
+    },
+    {
+      "path": "spliceplant/inputs.py",
+      "action": "add",
+      "sha256": "3f8eb523ab7bc64693e4f5e7f08325d5b0c1624ed60dc3bcc640ee88ce8c5307",
+      "bytes": 2311,
+      "original_git_blob": null
+    },
+    {
+      "path": "spliceplant/model.py",
+      "action": "add",
+      "sha256": "e2140b63f0d3b75d1aa643f9a1470407c6f35272321d9ff39a028ce70c323384",
+      "bytes": 5184,
+      "original_git_blob": null
+    },
+    {
+      "path": "tests/test_sequence_tools.py",
+      "action": "add",
+      "sha256": "8ea41b3250e6eb41f1872c653a7004d6d6d14f24853a83a42ee1c07c491ad819",
+      "bytes": 6802,
+      "original_git_blob": null
+    },
+    {
+      "path": "training/ge_demo_data.py",
+      "action": "replace",
+      "sha256": "b8d90b92a9bd3efac1b6f6f7085e50d14df8f3c71d5c1c03412360a96dfe433d",
+      "bytes": 5195,
+      "original_git_blob": "b5a90d6a110f7d29235f2abb062a9f580e47a6bc"
+    },
+    {
+      "path": "training/kd_splice.py",
+      "action": "replace",
+      "sha256": "e3ad6bf9e64948615e7994d24ea818640be6e19df5ca5a46032f725be9586b93",
+      "bytes": 12802,
+      "original_git_blob": "a1cfc0ee9a8d5bee3db8cd922f1ba639d219c4e6"
+    },
+    {
+      "path": "training/README.md",
+      "action": "add",
+      "sha256": "82d67dd6ec4f087b9fed1bc2e0239f610d27db58cb3afeb44ea5fb4ed4c5b67f",
+      "bytes": 3518,
+      "original_git_blob": null
+    },
+    {
+      "path": "training/requirements.txt",
+      "action": "replace",
+      "sha256": "7783345244e4074b1370c6e5ebcdf7439f1fd87e72ee2d0c122829d3025da48b",
+      "bytes": 1537,
+      "original_git_blob": "98511e6f2412c798b12606534a8e0523891f750f"
+    }
+  ]
+}
