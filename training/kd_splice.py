@@ -1,7 +1,6 @@
-# kd_splice.py (patched)
+"""Train the archived SplicePlant student architecture by knowledge distillation."""
 import os, sys, argparse, time, datetime
 import numpy as np
-import pandas as pd
 from tqdm import tqdm
 
 import torch
@@ -9,10 +8,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader, WeightedRandomSampler
 
-from transformers import AutoTokenizer, AutoModel, AutoConfig
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, classification_report
 
 # ---- env
 os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
@@ -80,102 +75,15 @@ class KDSpliceDataset(Dataset):
             torch.tensor(tp, dtype=torch.float32)
         )
 
-# ---- student
-class ResBlock(nn.Module):
-    def __init__(self, L, W, AR):
-        super().__init__()
-        self.bn1 = nn.BatchNorm1d(L)
-        self.conv1 = nn.Conv1d(L, L, W, dilation=AR, padding='same')
-        self.bn2 = nn.BatchNorm1d(L)
-        self.conv2 = nn.Conv1d(L, L, W, dilation=AR, padding='same')
-    def forward(self, x):
-        out = self.bn1(x); out = torch.relu(out); out = self.conv1(out)
-        out = self.bn2(out); out = torch.relu(out); out = self.conv2(out)
-        return out + x
-
-try:
-    from sinkhorn_transformer import SinkhornTransformer
-    SINKHORN_AVAILABLE = True
-except Exception:
-    SINKHORN_AVAILABLE = False
-
-class AttnBlock(nn.Module):
-    def __init__(self, dim=40, pos_len=1200, depth=6, causal=False, reversible=False):
-        super().__init__()
-        self.pos_emb = nn.Embedding(pos_len, dim)
-        if SINKHORN_AVAILABLE:
-            self.attn = SinkhornTransformer(
-                dim, depth,
-                heads=8, n_local_attn_heads=2,
-                attn_layer_dropout=0.1, layer_dropout=0.1,
-                ff_dropout=0.1, ff_chunks=10,
-                causal=causal, reversible=reversible, non_permutative=True
-            )
-        else:
-            self.attn = nn.Identity()
-        self.norm = nn.LayerNorm(dim)
-
-    def forward(self, x):
-        b, dim, Lp = x.size()
-        pos_idx = torch.arange(0, Lp, device=x.device).unsqueeze(0).expand(b, Lp)
-        x = x.transpose(1,2).contiguous()  # [B, L', dim]
-        x = x + self.pos_emb(pos_idx)
-        x = self.attn(x)
-        x = self.norm(x)
-        x = x.transpose(1,2).contiguous()
-        return x
-
-class SpEncoder(nn.Module):
-    def __init__(self, L=50):
-        super().__init__()
-        self.W = np.asarray([11,11,11,11,11,11,11,11, 21,21,21,21,21,21,21,21])
-        self.AR= np.asarray([ 1, 1, 1, 1, 4, 4, 4, 4, 10,10,10,10,20,20,20,20])
-        self.conv1 = nn.Conv1d(4, L, 1)
-        self.skip  = nn.Conv1d(L, L, 1)
-        self.resblocks, self.convs = nn.ModuleList(), nn.ModuleList()
-        for i in range(len(self.W)):
-            self.resblocks.append(ResBlock(L, self.W[i], self.AR[i]))
-            if ((i+1)%4==0) or ((i+1)==len(self.W)):
-                self.convs.append(nn.Conv1d(L, L, 1))
-        self.splice_output = nn.Conv1d(L, 40, 1)
-
-    def forward(self, x):
-        x = x.permute(0,2,1)
-        conv = self.conv1(x)
-        skip = self.skip(conv)
-        j = 0
-        for i in range(len(self.W)):
-            conv = self.resblocks[i](conv)
-            if ((i+1)%4==0) or ((i+1)==len(self.W)):
-                dense = self.convs[j](conv); j += 1
-                skip = skip + dense
-        out = self.splice_output(skip)
-        return out
-
-class StudentModel(nn.Module):
-    def __init__(self, output_classes=3, dim=40, seq_len=1001):
-        super().__init__()
-        self.encoder = SpEncoder(L=50)
-        self.attn = AttnBlock(dim=dim, pos_len=max(1200, seq_len))
-        self.fc1 = nn.Linear(seq_len, 512)
-        self.conv1 = nn.Conv1d(dim, output_classes, 1)
-        self.relu = nn.ReLU()
-        self.dropout = nn.Dropout(0.2)
-        self.fc2 = nn.Linear(512, 1)
-
-    def forward(self, x):             # [B, L, 4]
-        x = self.encoder(x)           # [B, 40, L]
-        x = self.fc1(x)               # [B, 40, 512]
-        x = self.relu(x)
-        x = self.attn(x)              # [B, 40, 512]
-        x = self.conv1(x)             # [B, 3, 512]
-        x = self.dropout(x)
-        x = self.fc2(x)               # [B, 3, 1]
-        x = torch.mean(x, dim=2)      # [B, 3]
-        return x
+from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "inference"))
+from spliceplant_model import StudentModel, load_student, read_checkpoint, checkpoint_window
+from spliceplant_inputs import read_fasta, read_labeled_csv
 
 # ---- teacher: DNABERT-2
 def build_dnabert(CKPT, device):
+    from transformers import AutoTokenizer, AutoModel, AutoConfig
     cfg = AutoConfig.from_pretrained(CKPT, trust_remote_code=True)
     for k in ["use_flash_attn", "flash_attn", "use_triton", "attn_impl"]:
         if hasattr(cfg, k):
@@ -188,9 +96,8 @@ def build_dnabert(CKPT, device):
                 pass
     cfg.return_dict = True
     tok = AutoTokenizer.from_pretrained(CKPT, trust_remote_code=True)
-    # enc = AutoModel.from_pretrained(CKPT, trust_remote_code=True, config=cfg).eval().to(device)
     enc = AutoModel.from_pretrained(CKPT, trust_remote_code=True, config=cfg).eval().to(
-        "cuda" if torch.cuda.is_available() else "cpu")
+        device)
 
     enc.config.return_dict = True
     enc.config.use_flash_attn = False
@@ -249,21 +156,42 @@ def main():
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--log_dir", type=str, default="./logs")
     ap.add_argument("--save_path", type=str, default="./save_model/student_best.pth")
+    ap.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
+    ap.add_argument("--attention", choices=["identity", "sinkhorn"], default="identity",
+                    help="Explicit architecture choice; archived Zenodo weights use identity attention.")
     args = ap.parse_args()
+    from sklearn.model_selection import train_test_split
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.metrics import accuracy_score, classification_report
+    if args.epochs < 1 or args.batch_size < 1 or not 0 <= args.alpha <= 1 or args.tau < 1:
+        ap.error("epochs/batch_size must be positive, alpha in [0,1], tau >= 1")
+    if not 0 <= args.center_mask_prob <= 1:
+        ap.error("center_mask_prob must be in [0,1]")
+    Path(args.save_path).parent.mkdir(parents=True, exist_ok=True)
 
     torch.manual_seed(args.seed); np.random.seed(args.seed)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device(args.device)
 
     # 1) load data
-    df = pd.read_csv(args.csv)
-    assert "seq" in df.columns and "label" in df.columns, "CSV must have seq,label columns"
-    seqs = df["seq"].astype(str).tolist()
-    labels = df["label"].astype(int).to_numpy()
+    seqs, labels_list = read_labeled_csv(args.csv)
+    labels = np.asarray(labels_list, dtype=np.int64)
+    if set(labels_list) != {0, 1, 2}:
+        raise ValueError("Training requires all three classes: 0, 1, 2.")
 
     # 2) split
     tr_idx, te_idx = train_test_split(np.arange(len(labels)), test_size=0.2, stratify=labels, random_state=args.seed)
     seqs_tr = [seqs[i] for i in tr_idx]; y_tr = labels[tr_idx]
     seqs_te = [seqs[i] for i in te_idx]; y_te = labels[te_idx]
+    if len(tr_idx) < args.batch_size:
+        raise ValueError("batch_size exceeds training rows; decrease it (drop_last=True would train on zero batches).")
+
+    # Persist the exact row split (validation is used for early stopping).
+    import json, hashlib
+    metadata = {"arguments": vars(args), "csv_sha256": hashlib.sha256(Path(args.csv).read_bytes()).hexdigest(),
+                "train_rows_0based": tr_idx.tolist(), "validation_rows_0based": te_idx.tolist(),
+                "torch_version": torch.__version__, "numpy_version": np.__version__,
+                "label_mapping": {"0": "acceptor", "1": "donor", "2": "neither"}}
+    Path(str(args.save_path) + ".run.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
 
     # 3) teacher: encode + LR head
     tok, enc = build_dnabert(args.ckpt, device)
@@ -298,13 +226,13 @@ def main():
 
     # 5) student
     seq_len = len(seqs_tr[0])
-    student = StudentModel(output_classes=3, dim=40, seq_len=seq_len).to(device)
+    student = StudentModel(output_classes=3, dim=40, seq_len=seq_len, attention=args.attention).to(device)
     opt = torch.optim.Adam(student.parameters(), lr=args.lr)
     ce_crit = nn.CrossEntropyLoss()
 
     log_path = init_log("kd_splice", args.log_dir)
     log(f"Log file: {log_path}")
-    log(f"Data: {args.csv}, Train={len(train_ds)}, Test={len(test_ds)}")
+    log(f"Data: {args.csv}, Train={len(train_ds)}, Validation={len(test_ds)}")
     log(f"alpha={args.alpha}, tau={args.tau}, lr={args.lr}, batch={args.batch_size}, epochs={args.epochs}")
 
     best_val = -1.0
@@ -332,7 +260,7 @@ def main():
         epoch_duration = time.time() - epoch_start
         samples_per_sec = tot / epoch_duration
         mem_usage = ""
-        if torch.cuda.is_available():
+        if device.type == "cuda":
             max_mem = torch.cuda.max_memory_allocated(device) / (1024 ** 3)
             mem_usage = f"| GPU Mem: {max_mem:.2f} GB"
             torch.cuda.reset_peak_memory_stats(device)
@@ -365,7 +293,7 @@ def main():
     log(f"\n[Training Finished] Total Time: {str(datetime.timedelta(seconds=int(total_time)))}")
 
     # 7) final eval
-    student.load_state_dict(torch.load(args.save_path, map_location=device))
+    student.load_state_dict(torch.load(args.save_path, map_location=device, weights_only=True))
     student.eval()
     all_pred, all_y = [], []
     with torch.no_grad():
@@ -375,11 +303,12 @@ def main():
             all_pred.append(logits.argmax(dim=1).cpu().numpy())
             all_y.append(y.numpy())
     all_pred = np.concatenate(all_pred); all_y = np.concatenate(all_y)
-    log(f"[FINAL] Test Accuracy: {accuracy_score(all_y, all_pred):.4f}")
+    log(f"[FINAL] Validation Accuracy: {accuracy_score(all_y, all_pred):.4f}")
     log("\nClassification Report:\n" + classification_report(all_y, all_pred,
-        target_names=["Acceptor (0)", "Donor (1)", "Neither (2)"]))
+        labels=[0, 1, 2], target_names=["Acceptor (0)", "Donor (1)", "Neither (2)"], zero_division=0))
 
     if log_file: log_file.close()
 
 if __name__ == "__main__":
     main()
+

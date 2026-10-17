@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-16",
+  "source_commit": "1631e9d970565ffd7f23d47895339417f5721e0c",
+  "python": "3.14.4",
+  "host": "Windows",
+  "forward_comparison": {
+    "window": 401,
+    "torch": "2.12.0+cpu",
+    "numpy": "2.4.6",
+    "archived_checkpoint_strict_load": "passed",
+    "legacy_forward_equivalence": "bit_identical_on_two_seeded_windows",
+    "max_abs_difference": 0.0
+  },
+  "software_tests": {
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0
+  },
+  "not_run": [
+    "complete pinned Linux environment installation",
+    "DNABERT-2 teacher execution",
+    "full training",
+    "full attribution or manuscript motif regeneration",
+    "manuscript figure/metric reproduction"
+  ],
+  "layout_validation_2026_10_17": {
+    "date": "2026-10-17",
+    "base_commit": "1b7bc37685fadb1d74371d505c3219facc384b84",
+    "tests_passed": 10,
+    "tests_failed": 0,
+    "cli_help_passed": 7,
+    "local_links_checked": 24,
+    "shared_model_content_unchanged": true,
+    "original_pipeline_hashes_unchanged": true,
+    "deliverable_contains_test_outputs": false
+  }
+}

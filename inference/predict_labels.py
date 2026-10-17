@@ -68,83 +68,11 @@ class LongSeqDataset(Dataset):
 # -----------------------------
 # Student model
 # -----------------------------
-class ResBlock(nn.Module):
-    def __init__(self, L, W, AR):
-        super().__init__()
-        self.bn1 = nn.BatchNorm1d(L)
-        self.conv1 = nn.Conv1d(L, L, W, dilation=AR, padding='same')
-        self.bn2 = nn.BatchNorm1d(L)
-        self.conv2 = nn.Conv1d(L, L, W, dilation=AR, padding='same')
-    def forward(self, x):
-        out = self.bn1(x); out = torch.relu(out); out = self.conv1(out)
-        out = self.bn2(out); out = torch.relu(out); out = self.conv2(out)
-        return out + x
-
-class AttnBlock(nn.Module):
-    def __init__(self, dim=40, pos_len=1200):
-        super().__init__()
-        self.pos_emb = nn.Embedding(pos_len, dim)
-        self.attn = nn.Identity()
-        self.norm = nn.LayerNorm(dim)
-
-    def forward(self, x):
-        b, dim, Lp = x.size()
-        pos_idx = torch.arange(0, Lp, device=x.device).unsqueeze(0).expand(b, Lp)
-        x = x.transpose(1, 2).contiguous()
-        x = x + self.pos_emb(pos_idx)
-        x = self.attn(x)
-        x = self.norm(x)
-        x = x.transpose(1, 2).contiguous()
-        return x
-
-class SpEncoder(nn.Module):
-    def __init__(self, L=50):
-        super().__init__()
-        self.W  = np.asarray([11,11,11,11,11,11,11,11, 21,21,21,21,21,21,21,21])
-        self.AR = np.asarray([ 1, 1, 1, 1, 4, 4, 4, 4, 10,10,10,10,20,20,20,20])
-        self.conv1 = nn.Conv1d(4, L, 1)
-        self.skip  = nn.Conv1d(L, L, 1)
-        self.resblocks, self.convs = nn.ModuleList(), nn.ModuleList()
-        for i in range(len(self.W)):
-            self.resblocks.append(ResBlock(L, self.W[i], self.AR[i]))
-            if ((i+1)%4==0) or ((i+1)==len(self.W)):
-                self.convs.append(nn.Conv1d(L, L, 1))
-        self.splice_output = nn.Conv1d(L, 40, 1)
-
-    def forward(self, x):
-        x = x.permute(0, 2, 1)
-        conv = self.conv1(x)
-        skip = self.skip(conv)
-        j = 0
-        for i in range(len(self.W)):
-            conv = self.resblocks[i](conv)
-            if ((i+1)%4==0) or ((i+1)==len(self.W)):
-                dense = self.convs[j](conv); j += 1
-                skip = skip + dense
-        out = self.splice_output(skip)
-        return out
-
-class StudentModel(nn.Module):
-    def __init__(self, output_classes=3, dim=40, seq_len=1001):
-        super().__init__()
-        self.encoder = SpEncoder(L=50)
-        self.attn    = AttnBlock(dim=dim, pos_len=max(1200, seq_len))
-        self.fc1     = nn.Linear(seq_len, 512)
-        self.conv1   = nn.Conv1d(dim, output_classes, 1)
-        self.relu    = nn.ReLU()
-        self.dropout = nn.Dropout(0.2)
-        self.fc2     = nn.Linear(512, 1)
-
-    def forward(self, x):
-        x = self.encoder(x)
-        x = self.fc1(x)
-        x = self.relu(x)
-        x = self.attn(x)
-        x = self.conv1(x)
-        x = self.dropout(x)
-        x = self.fc2(x)
-        x = torch.mean(x, dim=2)
-        return x
+from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "inference"))
+from spliceplant_model import StudentModel, load_student, read_checkpoint, checkpoint_window
+from spliceplant_inputs import read_fasta, read_labeled_csv
 
 # -----------------------------
 # predict_per_base
@@ -180,32 +108,12 @@ def predict_per_base(model, loader, device, seq_len, window_size):
     return ''.join(per_base_predictions)
 
 def process_fasta_file(fasta_path, model, device, args):
-    sequences = []
-    current_header = None
-    current_seq = []
-    
-    with open(fasta_path, 'r') as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-            if line.startswith('>'):
-                if current_header is not None:
-                    full_seq = ''.join(current_seq)
-                    sequences.append((current_header, full_seq))
-                current_header = line[1:]
-                current_seq = []
-            else:
-                current_seq.append(line.upper())
-    
-    if current_header is not None:
-        full_seq = ''.join(current_seq)
-        sequences.append((current_header, full_seq))
-    
+    sequences = read_fasta(fasta_path)
+
     results = []
     
     for header, sequence in sequences:
-        if is_negative_strand(header):
+        if args.strand == "reverse" or (args.strand == "header" and is_negative_strand(header)):
             sequence = reverse_complement(sequence)
 
         valid_chars = set('ACGT')
@@ -230,32 +138,23 @@ def process_fasta_file(fasta_path, model, device, args):
 def main():
     parser = argparse.ArgumentParser(description="FASTA sequence splice site prediction")
     parser.add_argument("--input_dir", type=str, required=True, help="path to fasta fold")
-    parser.add_argument("--weights", type=str, default="../LLM/save_model/student_best.pth", help="path to model weights")
-    parser.add_argument("--output_file", type=str, default="predictions.txt", help="path to output")
+    parser.add_argument("--weights", type=str, required=True, help="path to model weights")
+    parser.add_argument("--output_dir", required=True, help="Separate directory for two-line prediction files")
+    parser.add_argument("--strand", choices=["header", "as-is", "reverse"], default="header",
+                        help="header preserves historical header-based reverse-complement behavior")
     parser.add_argument("--batch_size", type=int, default=128)
-    parser.add_argument("--window_size", type=int, default=401)
+    parser.add_argument("--window_size", type=int, default=0, help="0: infer window from checkpoint")
     parser.add_argument("--stride", type=int, default=1)
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
     args = parser.parse_args()
 
-    if not os.path.exists(args.input_dir) or not os.path.isdir(args.input_dir):
-        print(f"Error: The input folder does not exist or is not a directory: {args.input_dir}")
-        return
-
-    if not os.path.exists(args.weights):
-        print(f"Error: The weight file does not exist: {args.weights}")
-        return
-
-    print(f"Loading model weights: {args.weights} ...")
+    if args.batch_size < 1 or args.stride < 1 or args.window_size < 0:
+        parser.error("batch_size/stride must be positive; window_size cannot be negative")
+    if not Path(args.input_dir).is_dir():
+        parser.error("input_dir does not exist")
     device = torch.device(args.device)
-    model = StudentModel(output_classes=3, dim=40, seq_len=args.window_size).to(device)
-
-    try:
-        state = torch.load(args.weights, map_location=device)
-        model.load_state_dict(state, strict=True)
-    except Exception as e:
-        print(f"Error: Failed to load model weights: {e}")
-        return
+    model, args.window_size = load_student(args.weights, device, args.window_size)
+    Path(args.output_dir).mkdir(parents=True, exist_ok=True)
 
     extensions = ['*.fasta', '*.fa', '*.fna', '*.FASTA', '*.FA']
     fasta_files = []
@@ -266,7 +165,7 @@ def main():
 
     if not fasta_files:
         print(f"Warning: No FASTA file was found in {args.input_dir}.")
-        return
+        raise SystemExit(1)
 
     print(f"A total of {len(fasta_files)} FASTA files were found and processing has begun...")
     print("-" * 50)
@@ -276,11 +175,8 @@ def main():
     for i, fasta_file in enumerate(fasta_files):
         filename = os.path.basename(fasta_file)
 
-        file_prefix = filename.split('.')[0]
-        output_filename = f"{file_prefix}.txt"
-        output_path = os.path.join(args.input_dir, output_filename)
-
-        print(f"[{i + 1}/{len(fasta_files)}] processing: {filename} -> output: {output_filename}")
+        file_prefix = filename
+        print(f"[{i + 1}/{len(fasta_files)}] processing: {filename}")
 
         results = process_fasta_file(fasta_file, model, device, args)
 
@@ -288,24 +184,22 @@ def main():
             print(f"  -> Skip: Unable to generate valid prediction results in this file")
             continue
 
-        try:
-            with open(output_path, 'w') as f:
-                for header, sequence, predictions in results:
-                    f.write(f"{sequence}\n")
-                    f.write(f"{predictions}\n")
-            print(f"  -> FINISH")
-            total_files_processed += 1
-
-            total_bases = sum(len(seq) for _, seq, _ in results)
-            acceptor_count = sum(p.count('0') for _, _, p in results)
-            donor_count = sum(p.count('1') for _, _, p in results)
-            print(f"     Statistics: Length {total_bases}, Acceptor {acceptor_count}, Donor {donor_count}")
-
-        except Exception as e:
-            print(f"  -> Error: Failed to write to file {output_path}: {e}")
+        for record_number, (header, sequence, predictions) in enumerate(results, 1):
+            # One record per file: attribution consumes paired sequence/label lines.
+            output_path = Path(args.output_dir) / f"{file_prefix}.record{record_number:04d}.txt"
+            if output_path.exists():
+                raise FileExistsError(f"Refusing to overwrite {output_path}")
+            output_path.write_text(f"{sequence}\n{predictions}\n", encoding="utf-8")
+            import json
+            output_path.with_suffix(".json").write_text(json.dumps({"source_file": str(Path(fasta_file).resolve()),
+                "record_header": header, "strand_policy": args.strand, "window": args.window_size,
+                "stride": args.stride, "unscored_label": 2}, indent=2), encoding="utf-8")
+        total_files_processed += 1
 
     print("-" * 50)
-    print(f"DOWN! Successfully processed: {total_files_processed}/{len(fasta_files)}")
+    print(f"Done. Successfully processed: {total_files_processed}/{len(fasta_files)}")
+    if total_files_processed == 0:
+        raise SystemExit("No sequences could be processed; check input lengths and model window.")
 
 
 if __name__ == "__main__":

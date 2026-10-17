@@ -5,7 +5,6 @@ import torch
 import torch.nn as nn
 import numpy as np
 from tqdm import tqdm
-from captum.attr import DeepLift
 from collections import defaultdict
 import argparse
 import glob
@@ -25,92 +24,11 @@ def _maybe_import_modisco(enable: bool):
             f"{repr(e)}"
         )
 
-class ResBlock(nn.Module):
-    def __init__(self, L, W, AR):
-        super().__init__()
-        self.bn1 = nn.BatchNorm1d(L)
-        self.conv1 = nn.Conv1d(L, L, W, dilation=AR, padding='same')
-        self.bn2 = nn.BatchNorm1d(L)
-        self.conv2 = nn.Conv1d(L, L, W, dilation=AR, padding='same')
-
-    def forward(self, x):
-        out = self.bn1(x)
-        out = torch.relu(out)
-        out = self.conv1(out)
-        out = self.bn2(out)
-        out = torch.relu(out)
-        out = self.conv2(out)
-        return out + x
-
-class AttnBlock(nn.Module):
-    def __init__(self, dim=40, pos_len=1200):
-        super().__init__()
-        self.pos_emb = nn.Embedding(pos_len, dim)
-        self.attn = nn.Identity()
-        self.norm = nn.LayerNorm(dim)
-
-    def forward(self, x):
-        b, dim, Lp = x.size()
-        pos_idx = torch.arange(0, Lp, device=x.device).unsqueeze(0).expand(b, Lp)
-        x = x.transpose(1, 2).contiguous()
-        x = x + self.pos_emb(pos_idx)
-        x = self.attn(x)
-        x = self.norm(x)
-        x = x.transpose(1, 2).contiguous()
-        return x
-
-class SpEncoder(nn.Module):
-    def __init__(self, L=50):
-        super().__init__()
-        self.W = np.asarray([11, 11, 11, 11, 11, 11, 11, 11, 21, 21, 21, 21, 21, 21, 21, 21])
-        self.AR = np.asarray([1, 1, 1, 1, 4, 4, 4, 4, 10, 10, 10, 10, 20, 20, 20, 20])
-        self.conv1 = nn.Conv1d(4, L, 1)
-        self.skip = nn.Conv1d(L, L, 1)
-        self.resblocks = nn.ModuleList()
-        self.convs = nn.ModuleList()
-
-        for i in range(len(self.W)):
-            self.resblocks.append(ResBlock(L, self.W[i], self.AR[i]))
-            if ((i + 1) % 4 == 0) or ((i + 1) == len(self.W)):
-                self.convs.append(nn.Conv1d(L, L, 1))
-        self.splice_output = nn.Conv1d(L, 40, 1)
-
-    def forward(self, x):
-        x = x.permute(0, 2, 1)
-        conv = self.conv1(x)
-        skip = self.skip(conv)
-        j = 0
-        for i in range(len(self.W)):
-            conv = self.resblocks[i](conv)
-            if ((i + 1) % 4 == 0) or ((i + 1) == len(self.W)):
-                dense = self.convs[j](conv)
-                skip = skip + dense
-                j += 1
-        out = self.splice_output(skip)
-        return out
-
-class StudentModel(nn.Module):
-    def __init__(self, output_classes=3, dim=40, seq_len=401):
-        super().__init__()
-        self.encoder = SpEncoder(L=50)
-        self.attn = AttnBlock(dim=dim, pos_len=max(1200, seq_len))
-        self.fc1 = nn.Linear(seq_len, 512)
-        self.conv1 = nn.Conv1d(dim, output_classes, 1)
-        self.relu = nn.ReLU()
-        self.dropout = nn.Dropout(0.2)
-        self.fc2 = nn.Linear(512, 1)
-
-    def forward(self, x):
-        x = self.encoder(x)
-        x = self.fc1(x)
-        x = self.relu(x)
-        x = self.attn(x)
-        x = self.conv1(x)
-        x = self.dropout(x)
-        x = self.fc2(x)
-        x = torch.mean(x, dim=2)
-        return x
-
+from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "inference"))
+from spliceplant_model import StudentModel, load_student, read_checkpoint, checkpoint_window
+from spliceplant_inputs import read_fasta, read_labeled_csv
 
 _BASE2IDX = {"A": 0, "C": 1, "G": 2, "T": 3}
 
@@ -175,7 +93,8 @@ def compute_batch_contributions(
     x_np = np.stack([seq_to_onehot(s) for s in window_seqs], axis=0)  # [B,L,4]
     x = torch.tensor(x_np, dtype=torch.float32, device=device, requires_grad=True)
 
-    dl = DeepLift(model)
+    from captum.attr import DeepLift
+    dl = DeepLift(model)  # Legacy scoring formula retained; see attribution/README.md.
 
     # hypothetical templates
     hypo_templates = torch.zeros((4, 1, L, 4), dtype=torch.float32, device=device)
@@ -356,14 +275,16 @@ def extract_motifs_from_windows_fast(
 def read_two_line_file(path):
     with open(path, "r") as f:
         lines = f.read().splitlines()
-    if len(lines) < 2:
-        return None, None
+    if len(lines) != 2:
+        raise ValueError(f"Expected exactly two lines in {path}; split multi-record files first.")
     seq = lines[0].strip().upper()
     lab = lines[1].strip()
     if (" " in lab) or ("\t" in lab):
         labels = np.array([int(x) for x in lab.split()], dtype=int)
     else:
         labels = np.array([int(ch) for ch in lab], dtype=int)
+    if len(seq) != len(labels) or not set(labels.tolist()) <= {0, 1, 2}:
+        raise ValueError(f"Invalid labels or sequence/label length mismatch: {path}")
     return seq, labels
 
 def main():
@@ -371,7 +292,7 @@ def main():
     parser.add_argument("--input_dir", required=True, type=str)
     parser.add_argument("--output_dir", required=True, type=str)
     parser.add_argument("--weights", required=True, type=str)
-    parser.add_argument("--window_size", default=401, type=int)
+    parser.add_argument("--window_size", default=0, type=int, help="0: infer from checkpoint")
     parser.add_argument("--threshold", default=0.12, type=float)
     parser.add_argument("--min_length", default=5, type=int)
     parser.add_argument("--step", default=1, type=int)
@@ -379,22 +300,25 @@ def main():
     parser.add_argument("--batch_size", default=512, type=int)
     parser.add_argument("--no_tfmodisco", action="store_true")
 
+    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
+    parser.add_argument("--export_tfmodisco_inputs", action="store_true",
+                        help="Export arrays only; no TF-MoDISco clustering is run")
     args = parser.parse_args()
+    if min(args.step, args.num_refs, args.batch_size, args.min_length) < 1 or args.threshold < 0 or args.window_size < 0:
+        parser.error("Counts must be positive; threshold/window_size must be nonnegative")
+    if args.no_tfmodisco and args.export_tfmodisco_inputs:
+        parser.error("--no_tfmodisco conflicts with --export_tfmodisco_inputs")
+    np.random.seed(args.seed)
+    torch.manual_seed(args.seed)
     os.makedirs(args.output_dir, exist_ok=True)
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    _set_fast_cuda_flags()
-
-    model = StudentModel(seq_len=args.window_size).to(device)
-    ckpt = torch.load(args.weights, map_location="cpu")
-    if isinstance(ckpt, dict) and "state_dict" in ckpt:
-        model.load_state_dict(ckpt["state_dict"], strict=False)
-    else:
-        model.load_state_dict(ckpt, strict=False)
-    model.eval()
-
-    collect_tfmodisco = (not args.no_tfmodisco)
-    modisco = _maybe_import_modisco(collect_tfmodisco)
+    device = torch.device(args.device)
+    if device.type == "cuda":
+        _set_fast_cuda_flags()
+    model, args.window_size = load_student(args.weights, device, args.window_size)
+    collect_tfmodisco = args.export_tfmodisco_inputs
+    print("Using archived attribution formula; see attribution/README.md for interpretation limits.")
 
     files = sorted(glob.glob(os.path.join(args.input_dir, "*.txt")))
     if not files:
@@ -426,6 +350,17 @@ def main():
         base = os.path.splitext(os.path.basename(path))[0]
         out_motif = os.path.join(args.output_dir, f"{base}_motifs.txt")
         save_motifs(motifs, out_motif)
+        if collect_tfmodisco:
+            for target, items in tf_inputs.items():
+                np.savez_compressed(Path(args.output_dir) / f"{base}.class{target}.npz",
+                    one_hot=np.stack([v[0] for v in items]),
+                    contribution_scores=np.stack([v[1] for v in items]),
+                    hypothetical_scores=np.stack([v[2] for v in items]))
+    import json
+    (Path(args.output_dir) / "run_config.json").write_text(json.dumps({"arguments": vars(args),
+        "attribution_formula": "legacy_repository", "torch_version": torch.__version__,
+        "tfmodisco_clustering_run": False}, indent=2), encoding="utf-8")
 
 if __name__ == "__main__":
     main()
+

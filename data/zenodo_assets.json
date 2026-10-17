@@ -1,0 +1,197 @@
+{
+  "record_url": "https://zenodo.org/records/18783953",
+  "doi": "10.5281/zenodo.18783953",
+  "metadata_checked_on": "2026-10-16",
+  "files": [
+    {
+      "id": "b34d70d1-90ed-46c1-8250-528573d85d1f",
+      "key": "model.zip",
+      "size": 515006011,
+      "checksum": "md5:43268b79b4cfc40dc119a15cdb7f4e62",
+      "links": {
+        "self": "https://zenodo.org/api/records/18783953/files/model.zip/content"
+      }
+    },
+    {
+      "id": "d28c1c3c-82ba-4d8e-8179-f0c1483e5e57",
+      "key": "moif_results.zip",
+      "size": 219980786,
+      "checksum": "md5:ae15d9aabb51c5cb9a5a559ba8d6c02c",
+      "links": {
+        "self": "https://zenodo.org/api/records/18783953/files/moif_results.zip/content"
+      }
+    }
+  ],
+  "model_zip_members": [
+    {
+      "path": "model/",
+      "compressed": 0,
+      "size": 0,
+      "offset": 0,
+      "method": 0
+    },
+    {
+      "path": "model/attribution/",
+      "compressed": 0,
+      "size": 0,
+      "offset": 36,
+      "method": 0
+    },
+    {
+      "path": "model/attribution/compute_contributions.py",
+      "compressed": 4173,
+      "size": 15132,
+      "offset": 84,
+      "method": 8
+    },
+    {
+      "path": "model/inference/",
+      "compressed": 0,
+      "size": 0,
+      "offset": 4329,
+      "method": 0
+    },
+    {
+      "path": "model/inference/predict.py",
+      "compressed": 2807,
+      "size": 8248,
+      "offset": 4375,
+      "method": 8
+    },
+    {
+      "path": "model/inference/predict_labels.py",
+      "compressed": 3386,
+      "size": 11346,
+      "offset": 7238,
+      "method": 8
+    },
+    {
+      "path": "model/inference/score_sequence_per_base.py",
+      "compressed": 5307,
+      "size": 16953,
+      "offset": 10687,
+      "method": 8
+    },
+    {
+      "path": "model/pipeline/",
+      "compressed": 0,
+      "size": 0,
+      "offset": 16066,
+      "method": 0
+    },
+    {
+      "path": "model/pipeline/1_afdb_seq_search_download.py",
+      "compressed": 3975,
+      "size": 11880,
+      "offset": 16111,
+      "method": 8
+    },
+    {
+      "path": "model/pipeline/2_af3_cif_to_pdb.py",
+      "compressed": 1209,
+      "size": 3627,
+      "offset": 20160,
+      "method": 8
+    },
+    {
+      "path": "model/pipeline/3_map_af3_pdbs.py",
+      "compressed": 1134,
+      "size": 2689,
+      "offset": 21433,
+      "method": 8
+    },
+    {
+      "path": "model/pipeline/4_cotton.py",
+      "compressed": 8733,
+      "size": 32990,
+      "offset": 22629,
+      "method": 8
+    },
+    {
+      "path": "model/pipeline/llm.py",
+      "compressed": 16515,
+      "size": 65682,
+      "offset": 31418,
+      "method": 8
+    },
+    {
+      "path": "model/training/",
+      "compressed": 0,
+      "size": 0,
+      "offset": 47984,
+      "method": 0
+    },
+    {
+      "path": "model/training/cotton_data.csv",
+      "compressed": 75049000,
+      "size": 255292571,
+      "offset": 48029,
+      "method": 8
+    },
+    {
+      "path": "model/training/dnabert2_117M.zip",
+      "compressed": 434116173,
+      "size": 434053916,
+      "offset": 75097089,
+      "method": 8
+    },
+    {
+      "path": "model/training/ge_demo_data.py",
+      "compressed": 1407,
+      "size": 3511,
+      "offset": 509213324,
+      "method": 8
+    },
+    {
+      "path": "model/training/kd_splice.py",
+      "compressed": 5021,
+      "size": 15154,
+      "offset": 509214791,
+      "method": 8
+    },
+    {
+      "path": "model/training/requirements.txt",
+      "compressed": 754,
+      "size": 1536,
+      "offset": 509219869,
+      "method": 8
+    },
+    {
+      "path": "model/training/saved_model/",
+      "compressed": 0,
+      "size": 0,
+      "offset": 509220684,
+      "method": 0
+    },
+    {
+      "path": "model/training/saved_model/student_best.pth",
+      "compressed": 5782863,
+      "size": 6312043,
+      "offset": 509220741,
+      "method": 8
+    }
+  ],
+  "checkpoint_inspection": {
+    "source": "https://zenodo.org/api/records/18783953/files/model.zip/content",
+    "member": "model/training/saved_model/student_best.pth",
+    "sha256": "733fc94233480d05b2371d592907a6cb37c42089a0c5c4c9817b4657f5981bbf",
+    "bytes": 6312043,
+    "zip_crc32_verified": true,
+    "tensor_count": 247,
+    "fc1_shape": [
+      512,
+      401
+    ],
+    "attention_keys": [
+      "attn.pos_emb.weight",
+      "attn.norm.weight",
+      "attn.norm.bias"
+    ],
+    "output_shape": [
+      3,
+      40,
+      1
+    ]
+  },
+  "inspection_limits": "ZIP central directory and checkpoint member verified; full archives and teacher not executed or fully downloaded."
+}
