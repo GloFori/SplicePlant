@@ -1,0 +1,30 @@
+[
+  {
+    "source": "final_reports_case2.json",
+    "original_sha256": "9a05b05c8440687d7bd77a9a53c41d37facb64e11e148c93a5d25c45cb10d918",
+    "published": "historical_annotation/final_reports_case2.json",
+    "published_sha256": "c8911eca35f700fdf5729f978e45c7647c3923728b03fa15214a8283a339f505",
+    "processing": "Replace historical absolute file paths with portable labels; scores and annotations unchanged"
+  },
+  {
+    "source": "annotation_results/structure_info.json",
+    "original_sha256": "0c25b146a043548ee5c4b4078af8dcf7603e3bd0c5720b031fdaa5f0b1f19046",
+    "published": "historical_annotation/structure_info.json",
+    "published_sha256": "5065c96691846250ef116603938ba75f0306c0a841cd7ae3c4830950f19c49a4",
+    "processing": "Replace historical absolute file paths with portable labels; scores and annotations unchanged"
+  },
+  {
+    "source": "annotation_results/structure_summary.tsv",
+    "original_sha256": "ce9642111884e6b36ab4feea035a054c24f03b46fe9c38d67f7ed59d26036ecb",
+    "published": "historical_annotation/structure_summary.tsv",
+    "published_sha256": "b7f9e973a2386522592ce22332b94b56499c51970f3a3e327fa498090430b6b7",
+    "processing": "Replace historical absolute file paths with portable labels; scores and annotations unchanged"
+  },
+  {
+    "source": "annotation_results/pipeline_summary.txt",
+    "original_sha256": "bc34eb87a8471fa5a9a49af2db17902ee99520cdfd3504e7926f772ae75e8fb5",
+    "published": "historical_annotation/pipeline_summary.txt",
+    "published_sha256": "05f7bdb83e17aa02271663955ea582fb7e6ce84a92743c597fb633eda399f17d",
+    "processing": "Replace historical absolute file paths with portable labels; scores and annotations unchanged"
+  }
+]

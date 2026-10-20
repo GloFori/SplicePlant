@@ -1,0 +1,13 @@
+{
+  "canonical_repository": "GloFori/SplicePlant",
+  "branch": "pre-pipline",
+  "commit": "94ae36cdeb7bad110da96e90afcec355943400bb",
+  "curation_date": "2026-10-20",
+  "canonical_WT_CDS_nt": 637,
+  "canonical_ALT_CDS_nt": 654,
+  "canonical_CDS_translate_to_supplied_peptides": true,
+  "server_CDS_files_included": false,
+  "server_CDS_disposition": "Excluded from the additive package. The recovered ALT CDS duplicates WT; use the frozen published CDS pair.",
+  "recovered_structure_and_annotation_records_bound_to_canonical_peptides": true,
+  "unmodified_existing_repository_inputs": true
+}

@@ -2,6 +2,8 @@
 
 ## What is included
 
+The original AlphaFold Server structure exports are now available in [`recovered_server_archive/`](recovered_server_archive/README.md), added on 2026-10-20. This supplement contains the WT and ALT native structure models, confidence records, structure job inputs, converted PDB files, and additional historical reports. These are recovered historical outputs; no new AlphaFold or language-model run was performed.
+
 This example contains the complete set of 15 files supplied in the author's `case2.rar`, organized by purpose, plus a tested v0.3.0 annotation replay and its reference outputs. The author confirms that the original model analysis was completed for the manuscript. The supplied model report is included unchanged; no new model analysis was commissioned during packaging.
 
 | Directory / file | Contents |
@@ -13,9 +15,10 @@ This example contains the complete set of 15 files supplied in the author's `cas
 | `expected_replay/FLM_wt/`, `expected_replay/FLM_alt/` | Parsed annotation snapshots produced by v0.3.0 from the archived raw evidence |
 | `replay.py` | One command to verify the archive and replay both proteins separately |
 | `provenance/` | Original/public file hashes, sequence checks, code fingerprints and validation record |
+| `recovered_server_archive/` | Original AF3 ZIP exports, ten converted models, selected structures, reference structure, historical reports and independent evidence checks |
 | `../manifest.json`, `../checksums.sha256` | Published-file integrity records in the parent `examples/` directory |
 
-Only historical absolute server paths in four archived annotation files were replaced with portable database labels or explicit `UNAVAILABLE_STRUCTURE/` references. These replacements do not change sequence, alignment, domain, GO or score values. Every supplied file is accounted for in `provenance/source_manifest.json`, with hashes before and after publication processing. The structure filenames are references, not bundled structures.
+In the original `archived_annotation/` snapshot, historical absolute server paths in four files were replaced with portable database labels or `UNAVAILABLE_STRUCTURE/` references. These original publication records remain unchanged and do not describe the availability of the newly added supplement. The native CIF files and corresponding PDB structures are now supplied in `recovered_server_archive/`. Every file from the original 15-file archive remains accounted for in `provenance/source_manifest.json`; provenance for the recovered material is recorded separately under `recovered_server_archive/audit/`.
 
 ## Read the manuscript result
 
@@ -44,14 +47,26 @@ If the pipeline source is elsewhere, supply `--pipeline-dir /absolute/path/to/pi
 
 Expected results:
 
-| Protein | Length (aa) | BLAST hits | Domain/signature records | GO terms | Structure in replay |
+| Protein | Length (aa) | BLAST hits | Domain/signature records | GO terms | Structure imported by annotation replay |
 | --- | ---: | ---: | ---: | ---: | --- |
-| FLM_wt | 94 | 5 | 8 | 5 | missing |
-| FLM_alt | 85 | 5 | 8 | 5 | missing |
+| FLM_wt | 94 | 5 | 8 | 5 | not imported |
+| FLM_alt | 85 | 5 | 8 | 5 | not imported |
 
 The eight domain/signature records include overlapping annotations from different member databases; they do not imply eight independent physical domains. The replay checks full parsed JSON records, not only these counts. It also retains fresh input bindings, split XML provenance and evidence manifests in the run directory.
 
 The XML contains two queries. The script selects the matching `Iteration` for each protein and adjusts root query header fields; it preserves all of that query's hits, alignments and database statistics. InterProScan records are selected by exact protein sequence. Source files are never overwritten. A successful replay verifies parsing and input-to-evidence correspondence; it does not rerun the historical searches or validate phenotype causality.
+
+## Verify the recovered structures
+
+From `pipeline/`, run the separate check:
+
+```bash
+python examples/arabidopsis_flm/recovered_server_archive/verify_recovered_evidence.py
+```
+
+This standard-library check verifies the recovered file hashes, both canonical CDS-to-peptide translations, the AF3 job input sequences, all ten native CIF-to-PDB conversions, and selected-model confidence summaries. It does not rerun AlphaFold, structural alignment, database searches, splice prediction, or language-model inference.
+
+The original `replay.py` remains an annotation-only replay. Its structure field is still missing by design because it does not import the recovered models; this is distinct from whether structure files are available in the repository. See the [recovered-evidence guide](recovered_server_archive/README.md) for score definitions and historical interpretation notes.
 
 ## Recorded methods and versions
 
@@ -59,7 +74,7 @@ The archived XML records **BLASTP 2.16.0+** and database label **refseq_protein*
 
 The raw BLAST XML explicitly records BLOSUM62, E-value 1e-5, gap opening 11, gap extension 1 and filter F. Other historical command-line options cannot be established solely from these files. v0.3.0 default values recorded in a replay request are parser invocation metadata, not proof of unrecorded historical search parameters.
 
-The historical structure summaries are retained, but their referenced PDB/CIF files and original structural comparison outputs were not in the supplied archive. They can be inspected as reported results; they cannot be recomputed from this package alone. Accordingly, the new annotation replay does not import these scores as verified structure evidence.
+The original 15-file archive contained historical structure summaries without their referenced coordinate files. The 2026-10-20 supplement now supplies the original AF3 CIF exports, converted PDB models, confidence records and the AFDB_Q38836 reference structure. The supplied structure check reproduces the selected-model mean confidence from coordinates. The historical TM-scores compare each protein with AFDB_Q38836, not WT with ALT; their original alignment outputs and normalization settings remain unavailable. The existing annotation replay and its reference outputs are unchanged.
 
 The historical summary retains three BLAST hits per protein and zero GO scores. The v0.3.0 replay reads all five hits in the raw XML and recovers five GO terms from the raw InterProScan entries. These parsing differences are intentional and documented; historical files are not changed to match the new parser.
 
