@@ -1,0 +1,6 @@
+accession	description	organism	identity_pct	query_coverage_pct	query_coverage_union_pct	e_value	bit_score	statistics_scope
+NP_001321574	K-box region and MADS-box transcription factor family protein [Arabidopsis thaliana]	Arabidopsis thaliana	100.0	87.23404255319149	87.23404255319149	2.73283e-50	166.777	best HSP; union coverage reported separately
+NP_177833	K-box region and MADS-box transcription factor family protein [Arabidopsis thaliana]	Arabidopsis thaliana	100.0	87.23404255319149	87.23404255319149	9.62437e-50	166.007	best HSP; union coverage reported separately
+NP_974160	K-box region and MADS-box transcription factor family protein [Arabidopsis thaliana]	Arabidopsis thaliana	100.0	87.23404255319149	87.23404255319149	5.5357e-50	165.622	best HSP; union coverage reported separately
+NP_001321570	K-box region and MADS-box transcription factor family protein [Arabidopsis thaliana]	Arabidopsis thaliana	100.0	87.23404255319149	87.23404255319149	3.09612e-49	165.622	best HSP; union coverage reported separately
+XP_020890340	agamous-like MADS-box protein AGL27 isoform X1 [Arabidopsis lyrata subsp. lyrata]	Arabidopsis lyrata subsp. lyrata	97.5609756097561	87.23404255319149	87.23404255319149	7.26751e-49	163.696	best HSP; union coverage reported separately

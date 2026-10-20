@@ -1,0 +1,225 @@
+{
+  "release": "0.3.0",
+  "package_directory": "pipeline",
+  "generated_utc": "2026-10-15T12:59:24.706944+00:00",
+  "validation": {
+    "automated_tests_passed": 74,
+    "real_database_installation": "not_run_here",
+    "real_model_inference": "not_run_here",
+    "biological_demo": "not_included"
+  },
+  "files": {
+    ".gitattributes": {
+      "bytes": 45,
+      "sha256": "8d75fbed0329d55480242ea79c61cbdd3da312c700298bfba9572b81ec325cc6"
+    },
+    ".gitignore": {
+      "bytes": 303,
+      "sha256": "ff5b010841a1446c89794b198121ce8eaaf94760e5fe1b40bb053b48e99ee6d6"
+    },
+    "0_download_databases.py": {
+      "bytes": 171,
+      "sha256": "c8926189a50b5ea9ecfdb99c4b61c5142232f7aedfbb0a417e5322d5400112bd"
+    },
+    "0_install_environment.py": {
+      "bytes": 183,
+      "sha256": "7ac6f6c2be82f5229d70ca2dbac7eca85902824a0f7d8defa129946ac7541810"
+    },
+    "1_afdb_seq_search_download.py": {
+      "bytes": 206,
+      "sha256": "bd984f10a43728f3ab56ed16f33f882e2e41cbf48428a056e398ffe828dd75d9"
+    },
+    "2_af3_cif_to_pdb.py": {
+      "bytes": 210,
+      "sha256": "eaf4778aba35ab3e93db144c145b7aa3a19e607eb1b710d2c97b09b7c5b785a7"
+    },
+    "3_map_af3_pdbs.py": {
+      "bytes": 196,
+      "sha256": "8582a7ced692383ac15216412f8242882d43e5265f9030760915585a9313fef4"
+    },
+    "4_cotton.py": {
+      "bytes": 188,
+      "sha256": "0516ce9dcfaa2b3a32390cd72871e67df0e382418491cb3a9c943a683afe0ee6"
+    },
+    "CHANGELOG.md": {
+      "bytes": 3853,
+      "sha256": "332d5cc7bd04a809f88bdf0daa1a61e6bb99d9c7b04f96b9a35f614102bb3d3d"
+    },
+    "docs/AUDIT.md": {
+      "bytes": 8987,
+      "sha256": "67bee8f7c0afc45b05b276a067722dd4cf33f6d32b478f9959c60633d9ac7f0d"
+    },
+    "docs/ci-example.yml": {
+      "bytes": 780,
+      "sha256": "bdbb3dbd749f7f8f9e974c93c06dafbd362d76cb99e36ea9e5b8b50912bc1c7c"
+    },
+    "docs/GITHUB_HANDOFF.md": {
+      "bytes": 4129,
+      "sha256": "b73c37ab11af36a4668a82a9914496ead91cacc3237674ab30951c342d8fd3fd"
+    },
+    "docs/original_source_manifest.json": {
+      "bytes": 1070,
+      "sha256": "198c6072530cf885f6f81c83c7d9bf6c6a6e488e0f9894ab0be3388446b9a513"
+    },
+    "docs/VALIDATION.md": {
+      "bytes": 4677,
+      "sha256": "7c5ebeb65286042b8b4f73873492145a423761f9bd0849c61668857a669b47da"
+    },
+    "environment.local.yml": {
+      "bytes": 193,
+      "sha256": "447dfead6ee58b7a7789e27f1f0c87e62fb80f583cf4ef3af1c991e2e6e7985f"
+    },
+    "examples/README.md": {
+      "bytes": 1756,
+      "sha256": "0e1a36d71b4566d0daaeb5960451483f2799aee5cb63be5bc930d49e837dfc38"
+    },
+    "llm.py": {
+      "bytes": 187,
+      "sha256": "a5e9d46bce7d83ebeedd80dceff790876ca88c0da7c0eccd0800adb9a48f18e6"
+    },
+    "NOTICE.md": {
+      "bytes": 1209,
+      "sha256": "83109969b7df3edfc3161657ed5f45f12b1798f9f42b459de49e03cad22adb59"
+    },
+    "plant_protein_trait/__init__.py": {
+      "bytes": 86,
+      "sha256": "0f04a5f766b4671b44f5ea9ed9db167cdccb3ab29ef472dd50875c7695d35f67"
+    },
+    "plant_protein_trait/annotation.py": {
+      "bytes": 19382,
+      "sha256": "6f9d424c1c007860c1c89993919f887704a39393c63771375861de526398ce74"
+    },
+    "plant_protein_trait/cli.py": {
+      "bytes": 1231,
+      "sha256": "9152d83a9a07a0c5b82c67dff089f19c4a9c8d9345ccb562322e95a87c12f50a"
+    },
+    "plant_protein_trait/compare.py": {
+      "bytes": 2381,
+      "sha256": "89c254758e2212bcba3b19cc64ed16bff03fbd8c2069cbfde73849980edeb6d3"
+    },
+    "plant_protein_trait/configuration.py": {
+      "bytes": 2949,
+      "sha256": "e519b5a774e6f1bcd9dabf4fa9f73e373376355392b0229e65a56b181f1c714a"
+    },
+    "plant_protein_trait/core.py": {
+      "bytes": 4811,
+      "sha256": "81430270ce27d6e2ede51d28509c35b83fe1dec4989c18618e5af2214b879841"
+    },
+    "plant_protein_trait/doctor.py": {
+      "bytes": 894,
+      "sha256": "4fdb17cded495d7fd01ca074e9aab9d3140579bf60cc3887d627f03b74271a19"
+    },
+    "plant_protein_trait/inference.py": {
+      "bytes": 24335,
+      "sha256": "2338a0c394a27f80fcf4fe9e9868dfa4f4b53838bce6ea8de3bf60ff0f34ba47"
+    },
+    "plant_protein_trait/jobs.py": {
+      "bytes": 7751,
+      "sha256": "c8eb49c037271aa8d08eff5d7d3d4231e67efdbce35003d5c08d3de374f6b20e"
+    },
+    "plant_protein_trait/net.py": {
+      "bytes": 3023,
+      "sha256": "4b69877c5fc9ccc664ce0fbe684d07b578add21ba35422bc8206c55e5cae0423"
+    },
+    "plant_protein_trait/parsers.py": {
+      "bytes": 9856,
+      "sha256": "35a8eee3ff8cf875f27cb9cdbab3ab3de94ee9b3ee13be9a1c95f3a9e862c4ae"
+    },
+    "plant_protein_trait/report.py": {
+      "bytes": 4797,
+      "sha256": "e934627b441c835723a63a0b9cefd22d2dd38daac8635404efedcdbeb9b77517"
+    },
+    "plant_protein_trait/resources.py": {
+      "bytes": 9065,
+      "sha256": "58425abd56064f63acba43fc4646a112b660dd788dc4676132d0b0479f881062"
+    },
+    "plant_protein_trait/settings.py": {
+      "bytes": 1905,
+      "sha256": "9d1763acccff34fc0d573cda46344264bcd129fb39d0a06d8a4b8d5354bf43ca"
+    },
+    "plant_protein_trait/setup.py": {
+      "bytes": 5579,
+      "sha256": "bbfc763b3dbf04758c407cd445601bee5053fab0d2b07ab1e8f7649649d4caf2"
+    },
+    "plant_protein_trait/smoke.py": {
+      "bytes": 1432,
+      "sha256": "5c5b58a98d6fefbe3b7466c0417114d8672c09c68e1c93002b6350a75c4dc285"
+    },
+    "plant_protein_trait/structure_tools.py": {
+      "bytes": 14745,
+      "sha256": "1a6291c021bf0e347d9660fb47e1017a4f02892f4ba904ec7eb97f00c977972b"
+    },
+    "plant_protein_trait/workflow.py": {
+      "bytes": 6387,
+      "sha256": "c48700099be8f5d2562f9c5c5aebb755827f6deb243f10738f581ea8616c3cf3"
+    },
+    "pyproject.toml": {
+      "bytes": 690,
+      "sha256": "89fa26021e27dfbea21424a7137149cc7db0e8a0750fb7db5e2463aa14746ecc"
+    },
+    "README.md": {
+      "bytes": 8472,
+      "sha256": "0e5013d28ed2447bab49b37dced3768051411fa6a5942c58830eb4131187f341"
+    },
+    "references/interpretation.md": {
+      "bytes": 3981,
+      "sha256": "59e31eeb7f0df4d8df0e9ddad2c6b68b925ae72b6f27709587334aec6796beda"
+    },
+    "references/local.md": {
+      "bytes": 966,
+      "sha256": "ca67bffca730a66967286798c8b6ec262ebcfa1b0c5dae3a6403890c92cae9ad"
+    },
+    "references/manual.md": {
+      "bytes": 7159,
+      "sha256": "caebf1346e39dfcfb3efa9c74f72ef0314ef92fe40613820e08987ba47e297e2"
+    },
+    "references/online.md": {
+      "bytes": 3246,
+      "sha256": "a30d23ed9887894ac4eeff12f130c4070ddd652486e48348b7afa01929e5f077"
+    },
+    "references/reproducibility.md": {
+      "bytes": 3489,
+      "sha256": "d377121fdded1d434c3c98d236f55d97dbd80625741eceb5bd5d0e926057d361"
+    },
+    "references/schemas.md": {
+      "bytes": 5539,
+      "sha256": "91d420570c0cf913d81a70df9765fcb0cd86c2fc62be1c373e575280284492ab"
+    },
+    "references/structures.md": {
+      "bytes": 3743,
+      "sha256": "e77b9210bb4aedfcd4c5dacf94107e86c25e4c3404d74d14296b6bdd0b0bb2b9"
+    },
+    "references/workflow.md": {
+      "bytes": 4576,
+      "sha256": "b1fcbce25f5a98243dc4620ec47b23ad3f9160226229a0c2278b6c9c6e64de8c"
+    },
+    "skill/README.md": {
+      "bytes": 1118,
+      "sha256": "e64882d96a0812e1ebbb861fd935970b7c37c877f6b60f879fa7d1be06e7a3cb"
+    },
+    "skill/scripts/ppt.py": {
+      "bytes": 3486,
+      "sha256": "1a477758d01905a4966ddcf20d46be2e3402b75d42dfbe8c56d875f1f2a7cad7"
+    },
+    "skill/SKILL.md": {
+      "bytes": 4769,
+      "sha256": "351e576c2866b282a9b59c80394f47b2bcabc513f5574c03c5de957be38effce"
+    },
+    "tests/test_install_and_skill.py": {
+      "bytes": 12373,
+      "sha256": "598298a26842f860b51fc33a6ee23a05939532f318b3e34544eacc5b93a46eac"
+    },
+    "tests/test_pipeline.py": {
+      "bytes": 19776,
+      "sha256": "e495be5a08c56b84bdf0368f411991e469f0f171de0d6b21bd224f4003550de2"
+    },
+    "tests/test_routes.py": {
+      "bytes": 15722,
+      "sha256": "bf348c9f67ed1eccb8252112877c95246671601e541ae1c0cc6065ef75563a5e"
+    },
+    "tests/test_structures.py": {
+      "bytes": 7809,
+      "sha256": "15bf0d3ca548118178149cfafa0ff1e76c8369213dd0af3d5066baf54594773b"
+    }
+  }
+}

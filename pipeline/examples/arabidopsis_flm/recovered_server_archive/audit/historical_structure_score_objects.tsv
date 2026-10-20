@@ -1,0 +1,3 @@
+protein_id	selected_model_index	comparison_partner	historical_query_to_reference_TM_score	historical_mean_atom_plddt	historical_composite_structure_score	recomputed_mean_atom_plddt_matches	TM_score_recomputed	WT_vs_ALT_TM_score_available
+FLM_wt	0	AFDB_Q38836	0.82494	87.77902173913041	93.88951086956521	True	False	False
+FLM_alt	0	AFDB_Q38836	0.8594	89.01016320474776	94.50508160237388	True	False	False

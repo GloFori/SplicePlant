@@ -1,0 +1,15 @@
+{
+  "status": "previously_completed_author_confirmed",
+  "artifact_kind": "supplied_manuscript_model_report",
+  "report_file": "case2.md",
+  "sha256": "6eaf09fbe966863723681fdd8c8aefdefd0e651e35ce169c0087cbaed3d2cc43",
+  "original_language": "Chinese",
+  "preserved_byte_for_byte": true,
+  "model_identifier": null,
+  "provider": null,
+  "generation_settings": null,
+  "original_prompt_files": "not_supplied",
+  "provider_response_envelope": "not_supplied",
+  "new_model_calls_during_packaging": 0,
+  "note": "Missing call metadata does not mean the analysis was not performed. This report is not recast as a new v0.3.0 four-arm run."
+}

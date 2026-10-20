@@ -1,0 +1,1839 @@
+[
+  {
+    "seq_id": "FLM_wt",
+    "protein_id": "FLM_wt",
+    "description": "",
+    "sequence": "",
+    "length": 94,
+    "interpro_domains": [
+      {
+        "signature": {
+          "accession": "PR00404",
+          "name": "MADSDOMAIN",
+          "description": "MADS domain signature",
+          "signatureLibraryRelease": {
+            "library": "PRINTS",
+            "version": "42.0"
+          },
+          "entry": {
+            "accession": "IPR002100",
+            "name": "TF_MADSbox",
+            "description": "Transcription factor, MADS-box",
+            "type": "DOMAIN",
+            "goXRefs": [
+              {
+                "name": "protein dimerization activity",
+                "databaseName": "GO",
+                "category": "MOLECULAR_FUNCTION",
+                "id": "GO:0046983"
+              },
+              {
+                "name": "DNA binding",
+                "databaseName": "GO",
+                "category": "MOLECULAR_FUNCTION",
+                "id": "GO:0003677"
+              }
+            ],
+            "pathwayXRefs": [
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SCE-9031628"
+              },
+              {
+                "name": "Circadian Clock",
+                "databaseName": "Reactome",
+                "id": "R-HSA-400253"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-525793"
+              },
+              {
+                "name": "Cardiogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9733709"
+              },
+              {
+                "name": "ERK/MAPK targets",
+                "databaseName": "Reactome",
+                "id": "R-HSA-198753"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-MMU-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-CEL-525793"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-MMU-5663220"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-DME-5663220"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-MMU-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SCE-525793"
+              },
+              {
+                "name": "MECP2 regulates transcription factors",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9022707"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-HSA-5663220"
+              },
+              {
+                "name": "Estrogen-dependent nuclear events downstream of ESR-membrane signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9634638"
+              },
+              {
+                "name": "Transcriptional activation of mitochondrial biogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-2151201"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-CEL-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-BTA-525793"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9031628"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-DDI-9031628"
+              },
+              {
+                "name": "Heme signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9707616"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SPO-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-RNO-525793"
+              },
+              {
+                "name": "Regulation of NPAS4 gene transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9768777"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SPO-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-DME-525793"
+              }
+            ]
+          }
+        },
+        "locations": [
+          {
+            "start": 3,
+            "end": 23,
+            "representative": false,
+            "pvalue": 2.76e-13,
+            "score": 68.15,
+            "motifNumber": 1,
+            "location-fragments": [
+              {
+                "start": 3,
+                "end": 23,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          },
+          {
+            "start": 38,
+            "end": 59,
+            "representative": false,
+            "pvalue": 3.87e-09,
+            "score": 40.02,
+            "motifNumber": 3,
+            "location-fragments": [
+              {
+                "start": 38,
+                "end": 59,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          },
+          {
+            "start": 23,
+            "end": 38,
+            "representative": false,
+            "pvalue": 3.08e-09,
+            "score": 62.2,
+            "motifNumber": 2,
+            "location-fragments": [
+              {
+                "start": 23,
+                "end": 38,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "evalue": 4.7e-24,
+        "graphscan": "III",
+        "model-ac": "PR00404"
+      },
+      {
+        "signature": {
+          "accession": "PTHR48019",
+          "name": "SERUM RESPONSE FACTOR HOMOLOG",
+          "description": null,
+          "signatureLibraryRelease": {
+            "library": "PANTHER",
+            "version": "18.0"
+          },
+          "entry": {
+            "accession": "IPR050142",
+            "name": "MADS-box/MEF2_TF",
+            "description": "MADS-box/MEF2 Transcription Factor",
+            "type": "FAMILY",
+            "goXRefs": [],
+            "pathwayXRefs": [
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SCE-9031628"
+              },
+              {
+                "name": "Circadian Clock",
+                "databaseName": "Reactome",
+                "id": "R-HSA-400253"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-525793"
+              },
+              {
+                "name": "Cardiogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9733709"
+              },
+              {
+                "name": "ERK/MAPK targets",
+                "databaseName": "Reactome",
+                "id": "R-HSA-198753"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-MMU-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-CEL-525793"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-MMU-5663220"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-DME-5663220"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-MMU-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SCE-525793"
+              },
+              {
+                "name": "MECP2 regulates transcription factors",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9022707"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-HSA-5663220"
+              },
+              {
+                "name": "Estrogen-dependent nuclear events downstream of ESR-membrane signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9634638"
+              },
+              {
+                "name": "Transcriptional activation of mitochondrial biogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-2151201"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-CEL-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-BTA-525793"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9031628"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-DDI-9031628"
+              },
+              {
+                "name": "Heme signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9707616"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SPO-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-RNO-525793"
+              },
+              {
+                "name": "Regulation of NPAS4 gene transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9768777"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SPO-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-DME-525793"
+              }
+            ]
+          }
+        },
+        "locations": [
+          {
+            "start": 1,
+            "end": 73,
+            "representative": false,
+            "hmmStart": 1,
+            "hmmEnd": 71,
+            "hmmLength": 0,
+            "hmmBounds": "N_TERMINAL_COMPLETE",
+            "envelopeStart": 1,
+            "envelopeEnd": 93,
+            "location-fragments": [
+              {
+                "start": 1,
+                "end": 73,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "accession": "PTHR48019:SF181",
+        "name": "(RAPE) HYPOTHETICAL PROTEIN",
+        "evalue": 9.9e-32,
+        "score": 122.3,
+        "proteinClass": null,
+        "graftPoint": "PTN008281795",
+        "goXRefs": [
+          {
+            "name": "regulation of transcription by RNA polymerase II",
+            "databaseName": "GO",
+            "category": "BIOLOGICAL_PROCESS",
+            "id": "GO:0006357"
+          },
+          {
+            "name": "DNA-binding transcription factor activity, RNA polymerase II-specific",
+            "databaseName": "GO",
+            "category": "MOLECULAR_FUNCTION",
+            "id": "GO:0000981"
+          },
+          {
+            "name": "RNA polymerase II cis-regulatory region sequence-specific DNA binding",
+            "databaseName": "GO",
+            "category": "MOLECULAR_FUNCTION",
+            "id": "GO:0000978"
+          }
+        ],
+        "model-ac": "PTHR48019:SF181"
+      },
+      {
+        "signature": {
+          "accession": "PF00319",
+          "name": "SRF-TF",
+          "description": "SRF-type transcription factor (DNA-binding and dimerisation domain)",
+          "signatureLibraryRelease": {
+            "library": "PFAM",
+            "version": "36.0"
+          },
+          "entry": {
+            "accession": "IPR002100",
+            "name": "TF_MADSbox",
+            "description": "Transcription factor, MADS-box",
+            "type": "DOMAIN",
+            "goXRefs": [
+              {
+                "name": "protein dimerization activity",
+                "databaseName": "GO",
+                "category": "MOLECULAR_FUNCTION",
+                "id": "GO:0046983"
+              },
+              {
+                "name": "DNA binding",
+                "databaseName": "GO",
+                "category": "MOLECULAR_FUNCTION",
+                "id": "GO:0003677"
+              }
+            ],
+            "pathwayXRefs": [
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SCE-9031628"
+              },
+              {
+                "name": "Circadian Clock",
+                "databaseName": "Reactome",
+                "id": "R-HSA-400253"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-525793"
+              },
+              {
+                "name": "Cardiogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9733709"
+              },
+              {
+                "name": "ERK/MAPK targets",
+                "databaseName": "Reactome",
+                "id": "R-HSA-198753"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-MMU-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-CEL-525793"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-MMU-5663220"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-DME-5663220"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-MMU-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SCE-525793"
+              },
+              {
+                "name": "MECP2 regulates transcription factors",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9022707"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-HSA-5663220"
+              },
+              {
+                "name": "Estrogen-dependent nuclear events downstream of ESR-membrane signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9634638"
+              },
+              {
+                "name": "Transcriptional activation of mitochondrial biogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-2151201"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-CEL-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-BTA-525793"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9031628"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-DDI-9031628"
+              },
+              {
+                "name": "Heme signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9707616"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SPO-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-RNO-525793"
+              },
+              {
+                "name": "Regulation of NPAS4 gene transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9768777"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SPO-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-DME-525793"
+              }
+            ]
+          }
+        },
+        "locations": [
+          {
+            "start": 10,
+            "end": 55,
+            "representative": false,
+            "hmmStart": 1,
+            "hmmEnd": 46,
+            "hmmLength": 48,
+            "hmmBounds": "N_TERMINAL_COMPLETE",
+            "evalue": 3.3e-19,
+            "score": 79.4,
+            "envelopeStart": 10,
+            "envelopeEnd": 57,
+            "postProcessed": true,
+            "location-fragments": [
+              {
+                "start": 10,
+                "end": 55,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "evalue": 2.2e-19,
+        "score": 79.9,
+        "model-ac": "PF00319"
+      },
+      {
+        "signature": {
+          "accession": "SSF55455",
+          "name": "SRF-like",
+          "description": null,
+          "signatureLibraryRelease": {
+            "library": "SUPERFAMILY",
+            "version": "1.75"
+          },
+          "entry": {
+            "accession": "IPR036879",
+            "name": "TF_MADSbox_sf",
+            "description": "Transcription factor, MADS-box superfamily",
+            "type": "HOMOLOGOUS_SUPERFAMILY",
+            "goXRefs": [
+              {
+                "name": "protein dimerization activity",
+                "databaseName": "GO",
+                "category": "MOLECULAR_FUNCTION",
+                "id": "GO:0046983"
+              },
+              {
+                "name": "DNA binding",
+                "databaseName": "GO",
+                "category": "MOLECULAR_FUNCTION",
+                "id": "GO:0003677"
+              }
+            ],
+            "pathwayXRefs": [
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SCE-9031628"
+              },
+              {
+                "name": "Circadian Clock",
+                "databaseName": "Reactome",
+                "id": "R-HSA-400253"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-525793"
+              },
+              {
+                "name": "Cardiogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9733709"
+              },
+              {
+                "name": "ERK/MAPK targets",
+                "databaseName": "Reactome",
+                "id": "R-HSA-198753"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-MMU-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-CEL-525793"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-MMU-5663220"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-DME-5663220"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-MMU-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SCE-525793"
+              },
+              {
+                "name": "MECP2 regulates transcription factors",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9022707"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-HSA-5663220"
+              },
+              {
+                "name": "Estrogen-dependent nuclear events downstream of ESR-membrane signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9634638"
+              },
+              {
+                "name": "Transcriptional activation of mitochondrial biogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-2151201"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-CEL-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-BTA-525793"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9031628"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-DDI-9031628"
+              },
+              {
+                "name": "Heme signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9707616"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SPO-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-RNO-525793"
+              },
+              {
+                "name": "Regulation of NPAS4 gene transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9768777"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SPO-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-DME-525793"
+              }
+            ]
+          }
+        },
+        "locations": [
+          {
+            "start": 1,
+            "end": 73,
+            "representative": false,
+            "hmmLength": 85,
+            "location-fragments": [
+              {
+                "start": 1,
+                "end": 73,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "evalue": 1.7e-26,
+        "model-ac": "0041015"
+      },
+      {
+        "signature": {
+          "accession": "SM00432",
+          "name": "madsneu2",
+          "description": null,
+          "signatureLibraryRelease": {
+            "library": "SMART",
+            "version": "9.0"
+          },
+          "entry": {
+            "accession": "IPR002100",
+            "name": "TF_MADSbox",
+            "description": "Transcription factor, MADS-box",
+            "type": "DOMAIN",
+            "goXRefs": [
+              {
+                "name": "protein dimerization activity",
+                "databaseName": "GO",
+                "category": "MOLECULAR_FUNCTION",
+                "id": "GO:0046983"
+              },
+              {
+                "name": "DNA binding",
+                "databaseName": "GO",
+                "category": "MOLECULAR_FUNCTION",
+                "id": "GO:0003677"
+              }
+            ],
+            "pathwayXRefs": [
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SCE-9031628"
+              },
+              {
+                "name": "Circadian Clock",
+                "databaseName": "Reactome",
+                "id": "R-HSA-400253"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-525793"
+              },
+              {
+                "name": "Cardiogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9733709"
+              },
+              {
+                "name": "ERK/MAPK targets",
+                "databaseName": "Reactome",
+                "id": "R-HSA-198753"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-MMU-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-CEL-525793"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-MMU-5663220"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-DME-5663220"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-MMU-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SCE-525793"
+              },
+              {
+                "name": "MECP2 regulates transcription factors",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9022707"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-HSA-5663220"
+              },
+              {
+                "name": "Estrogen-dependent nuclear events downstream of ESR-membrane signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9634638"
+              },
+              {
+                "name": "Transcriptional activation of mitochondrial biogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-2151201"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-CEL-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-BTA-525793"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9031628"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-DDI-9031628"
+              },
+              {
+                "name": "Heme signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9707616"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SPO-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-RNO-525793"
+              },
+              {
+                "name": "Regulation of NPAS4 gene transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9768777"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SPO-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-DME-525793"
+              }
+            ]
+          }
+        },
+        "locations": [
+          {
+            "start": 1,
+            "end": 60,
+            "representative": false,
+            "hmmStart": 1,
+            "hmmEnd": 60,
+            "hmmLength": 60,
+            "hmmBounds": "COMPLETE",
+            "evalue": 4.7e-33,
+            "score": 125.8,
+            "location-fragments": [
+              {
+                "start": 1,
+                "end": 60,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "evalue": 4.7e-33,
+        "score": 125.8,
+        "model-ac": "SM00432"
+      }
+    ],
+    "go_terms": [],
+    "pathways": [],
+    "blast_hits": [
+      {
+        "accession": "NP_001321574",
+        "title": "ref|NP_001321574.1| K-box region and MADS-box transcription factor family protein [Arabidopsis thaliana]",
+        "length": 176,
+        "e_value": 2.73283e-50,
+        "score": 421.0,
+        "identity": 100.0,
+        "coverage": 87.2340425531915
+      },
+      {
+        "accession": "NP_974160",
+        "title": "ref|NP_974160.2| K-box region and MADS-box transcription factor family protein [Arabidopsis thaliana]",
+        "length": 173,
+        "e_value": 5.5357e-50,
+        "score": 418.0,
+        "identity": 100.0,
+        "coverage": 87.2340425531915
+      },
+      {
+        "accession": "NP_177833",
+        "title": "ref|NP_177833.3| K-box region and MADS-box transcription factor family protein [Arabidopsis thaliana]",
+        "length": 196,
+        "e_value": 9.62437e-50,
+        "score": 419.0,
+        "identity": 100.0,
+        "coverage": 87.2340425531915
+      }
+    ],
+    "structure": {
+      "pdb_file": "mapped_structures/FLM_wt.pdb",
+      "avg_pLDDT": 87.77902173913041,
+      "best_tm_score": 0.82494,
+      "best_template": "",
+      "predicted_structure_available": true
+    }
+  },
+  {
+    "seq_id": "FLM_alt",
+    "protein_id": "FLM_alt",
+    "description": "",
+    "sequence": "",
+    "length": 85,
+    "interpro_domains": [
+      {
+        "signature": {
+          "accession": "G3DSA:3.40.1810.10:FF:000020",
+          "name": null,
+          "description": "MADS-box protein FLOWERING LOCUS C",
+          "signatureLibraryRelease": {
+            "library": "FUNFAM",
+            "version": "4.3.0"
+          },
+          "entry": null
+        },
+        "locations": [
+          {
+            "start": 13,
+            "end": 82,
+            "representative": false,
+            "hmmStart": 1,
+            "hmmEnd": 69,
+            "hmmLength": 70,
+            "hmmBounds": "N_TERMINAL_COMPLETE",
+            "evalue": 3.7e-44,
+            "score": 150.4,
+            "envelopeStart": 13,
+            "envelopeEnd": 82,
+            "postProcessed": true,
+            "location-fragments": [
+              {
+                "start": 13,
+                "end": 82,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "evalue": 3.1e-44,
+        "score": 150.6,
+        "model-ac": "3.40.1810.10-FF-000020"
+      },
+      {
+        "signature": {
+          "accession": "PR00404",
+          "name": "MADSDOMAIN",
+          "description": "MADS domain signature",
+          "signatureLibraryRelease": {
+            "library": "PRINTS",
+            "version": "42.0"
+          },
+          "entry": {
+            "accession": "IPR002100",
+            "name": "TF_MADSbox",
+            "description": "Transcription factor, MADS-box",
+            "type": "DOMAIN",
+            "goXRefs": [
+              {
+                "name": "protein dimerization activity",
+                "databaseName": "GO",
+                "category": "MOLECULAR_FUNCTION",
+                "id": "GO:0046983"
+              },
+              {
+                "name": "DNA binding",
+                "databaseName": "GO",
+                "category": "MOLECULAR_FUNCTION",
+                "id": "GO:0003677"
+              }
+            ],
+            "pathwayXRefs": [
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SCE-9031628"
+              },
+              {
+                "name": "Circadian Clock",
+                "databaseName": "Reactome",
+                "id": "R-HSA-400253"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-525793"
+              },
+              {
+                "name": "Cardiogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9733709"
+              },
+              {
+                "name": "ERK/MAPK targets",
+                "databaseName": "Reactome",
+                "id": "R-HSA-198753"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-MMU-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-CEL-525793"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-MMU-5663220"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-DME-5663220"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-MMU-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SCE-525793"
+              },
+              {
+                "name": "MECP2 regulates transcription factors",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9022707"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-HSA-5663220"
+              },
+              {
+                "name": "Estrogen-dependent nuclear events downstream of ESR-membrane signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9634638"
+              },
+              {
+                "name": "Transcriptional activation of mitochondrial biogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-2151201"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-CEL-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-BTA-525793"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9031628"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-DDI-9031628"
+              },
+              {
+                "name": "Heme signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9707616"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SPO-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-RNO-525793"
+              },
+              {
+                "name": "Regulation of NPAS4 gene transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9768777"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SPO-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-DME-525793"
+              }
+            ]
+          }
+        },
+        "locations": [
+          {
+            "start": 3,
+            "end": 23,
+            "representative": false,
+            "pvalue": 2.61e-13,
+            "score": 68.15,
+            "motifNumber": 1,
+            "location-fragments": [
+              {
+                "start": 3,
+                "end": 23,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          },
+          {
+            "start": 23,
+            "end": 38,
+            "representative": false,
+            "pvalue": 2.91e-09,
+            "score": 62.2,
+            "motifNumber": 2,
+            "location-fragments": [
+              {
+                "start": 23,
+                "end": 38,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          },
+          {
+            "start": 38,
+            "end": 59,
+            "representative": false,
+            "pvalue": 3.65e-09,
+            "score": 40.02,
+            "motifNumber": 3,
+            "location-fragments": [
+              {
+                "start": 38,
+                "end": 59,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "evalue": 4e-24,
+        "graphscan": "III",
+        "model-ac": "PR00404"
+      },
+      {
+        "signature": {
+          "accession": "PTHR48019",
+          "name": "SERUM RESPONSE FACTOR HOMOLOG",
+          "description": null,
+          "signatureLibraryRelease": {
+            "library": "PANTHER",
+            "version": "18.0"
+          },
+          "entry": {
+            "accession": "IPR050142",
+            "name": "MADS-box/MEF2_TF",
+            "description": "MADS-box/MEF2 Transcription Factor",
+            "type": "FAMILY",
+            "goXRefs": [],
+            "pathwayXRefs": [
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SCE-9031628"
+              },
+              {
+                "name": "Circadian Clock",
+                "databaseName": "Reactome",
+                "id": "R-HSA-400253"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-525793"
+              },
+              {
+                "name": "Cardiogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9733709"
+              },
+              {
+                "name": "ERK/MAPK targets",
+                "databaseName": "Reactome",
+                "id": "R-HSA-198753"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-MMU-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-CEL-525793"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-MMU-5663220"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-DME-5663220"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-MMU-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SCE-525793"
+              },
+              {
+                "name": "MECP2 regulates transcription factors",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9022707"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-HSA-5663220"
+              },
+              {
+                "name": "Estrogen-dependent nuclear events downstream of ESR-membrane signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9634638"
+              },
+              {
+                "name": "Transcriptional activation of mitochondrial biogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-2151201"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-CEL-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-BTA-525793"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9031628"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-DDI-9031628"
+              },
+              {
+                "name": "Heme signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9707616"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SPO-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-RNO-525793"
+              },
+              {
+                "name": "Regulation of NPAS4 gene transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9768777"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SPO-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-DME-525793"
+              }
+            ]
+          }
+        },
+        "locations": [
+          {
+            "start": 1,
+            "end": 73,
+            "representative": false,
+            "hmmStart": 1,
+            "hmmEnd": 71,
+            "hmmLength": 0,
+            "hmmBounds": "N_TERMINAL_COMPLETE",
+            "envelopeStart": 1,
+            "envelopeEnd": 82,
+            "location-fragments": [
+              {
+                "start": 1,
+                "end": 73,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "accession": "PTHR48019:SF181",
+        "name": "(RAPE) HYPOTHETICAL PROTEIN",
+        "evalue": 1.7e-31,
+        "score": 121.6,
+        "proteinClass": null,
+        "graftPoint": "PTN008281795",
+        "goXRefs": [
+          {
+            "name": "regulation of transcription by RNA polymerase II",
+            "databaseName": "GO",
+            "category": "BIOLOGICAL_PROCESS",
+            "id": "GO:0006357"
+          },
+          {
+            "name": "DNA-binding transcription factor activity, RNA polymerase II-specific",
+            "databaseName": "GO",
+            "category": "MOLECULAR_FUNCTION",
+            "id": "GO:0000981"
+          },
+          {
+            "name": "RNA polymerase II cis-regulatory region sequence-specific DNA binding",
+            "databaseName": "GO",
+            "category": "MOLECULAR_FUNCTION",
+            "id": "GO:0000978"
+          }
+        ],
+        "model-ac": "PTHR48019:SF181"
+      },
+      {
+        "signature": {
+          "accession": "G3DSA:3.40.1810.10",
+          "name": "",
+          "description": null,
+          "signatureLibraryRelease": {
+            "library": "GENE3D",
+            "version": "4.3.0"
+          },
+          "entry": {
+            "accession": "IPR036879",
+            "name": "TF_MADSbox_sf",
+            "description": "Transcription factor, MADS-box superfamily",
+            "type": "HOMOLOGOUS_SUPERFAMILY",
+            "goXRefs": [
+              {
+                "name": "protein dimerization activity",
+                "databaseName": "GO",
+                "category": "MOLECULAR_FUNCTION",
+                "id": "GO:0046983"
+              },
+              {
+                "name": "DNA binding",
+                "databaseName": "GO",
+                "category": "MOLECULAR_FUNCTION",
+                "id": "GO:0003677"
+              }
+            ],
+            "pathwayXRefs": [
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SCE-9031628"
+              },
+              {
+                "name": "Circadian Clock",
+                "databaseName": "Reactome",
+                "id": "R-HSA-400253"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-525793"
+              },
+              {
+                "name": "Cardiogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9733709"
+              },
+              {
+                "name": "ERK/MAPK targets",
+                "databaseName": "Reactome",
+                "id": "R-HSA-198753"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-MMU-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-CEL-525793"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-MMU-5663220"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-DME-5663220"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-MMU-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SCE-525793"
+              },
+              {
+                "name": "MECP2 regulates transcription factors",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9022707"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-HSA-5663220"
+              },
+              {
+                "name": "Estrogen-dependent nuclear events downstream of ESR-membrane signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9634638"
+              },
+              {
+                "name": "Transcriptional activation of mitochondrial biogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-2151201"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-CEL-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-BTA-525793"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9031628"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-DDI-9031628"
+              },
+              {
+                "name": "Heme signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9707616"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SPO-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-RNO-525793"
+              },
+              {
+                "name": "Regulation of NPAS4 gene transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9768777"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SPO-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-DME-525793"
+              }
+            ]
+          }
+        },
+        "locations": [
+          {
+            "start": 13,
+            "end": 80,
+            "representative": false,
+            "hmmStart": 1,
+            "hmmEnd": 60,
+            "hmmLength": 73,
+            "hmmBounds": "COMPLETE",
+            "evalue": 1.8e-22,
+            "score": 81.0,
+            "envelopeStart": 13,
+            "envelopeEnd": 80,
+            "postProcessed": true,
+            "location-fragments": [
+              {
+                "start": 13,
+                "end": 80,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "evalue": 1.5e-22,
+        "score": 81.2,
+        "model-ac": "1mnmA01"
+      },
+      {
+        "signature": {
+          "accession": "SM00432",
+          "name": "madsneu2",
+          "description": null,
+          "signatureLibraryRelease": {
+            "library": "SMART",
+            "version": "9.0"
+          },
+          "entry": {
+            "accession": "IPR002100",
+            "name": "TF_MADSbox",
+            "description": "Transcription factor, MADS-box",
+            "type": "DOMAIN",
+            "goXRefs": [
+              {
+                "name": "protein dimerization activity",
+                "databaseName": "GO",
+                "category": "MOLECULAR_FUNCTION",
+                "id": "GO:0046983"
+              },
+              {
+                "name": "DNA binding",
+                "databaseName": "GO",
+                "category": "MOLECULAR_FUNCTION",
+                "id": "GO:0003677"
+              }
+            ],
+            "pathwayXRefs": [
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SCE-9031628"
+              },
+              {
+                "name": "Circadian Clock",
+                "databaseName": "Reactome",
+                "id": "R-HSA-400253"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-525793"
+              },
+              {
+                "name": "Cardiogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9733709"
+              },
+              {
+                "name": "ERK/MAPK targets",
+                "databaseName": "Reactome",
+                "id": "R-HSA-198753"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-MMU-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-CEL-525793"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-MMU-5663220"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-DME-5663220"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-MMU-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SCE-525793"
+              },
+              {
+                "name": "MECP2 regulates transcription factors",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9022707"
+              },
+              {
+                "name": "RHO GTPases Activate Formins",
+                "databaseName": "Reactome",
+                "id": "R-HSA-5663220"
+              },
+              {
+                "name": "Estrogen-dependent nuclear events downstream of ESR-membrane signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9634638"
+              },
+              {
+                "name": "Transcriptional activation of mitochondrial biogenesis",
+                "databaseName": "Reactome",
+                "id": "R-HSA-2151201"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-CEL-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-BTA-525793"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9031628"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-DDI-9031628"
+              },
+              {
+                "name": "Heme signaling",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9707616"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-SPO-525793"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-RNO-525793"
+              },
+              {
+                "name": "Regulation of NPAS4 gene transcription",
+                "databaseName": "Reactome",
+                "id": "R-HSA-9768777"
+              },
+              {
+                "name": "NGF-stimulated transcription",
+                "databaseName": "Reactome",
+                "id": "R-SPO-9031628"
+              },
+              {
+                "name": "Myogenesis",
+                "databaseName": "Reactome",
+                "id": "R-DME-525793"
+              }
+            ]
+          }
+        },
+        "locations": [
+          {
+            "start": 1,
+            "end": 60,
+            "representative": false,
+            "hmmStart": 1,
+            "hmmEnd": 60,
+            "hmmLength": 60,
+            "hmmBounds": "COMPLETE",
+            "evalue": 4.7e-33,
+            "score": 125.8,
+            "location-fragments": [
+              {
+                "start": 1,
+                "end": 60,
+                "dc-status": "CONTINUOUS"
+              }
+            ]
+          }
+        ],
+        "evalue": 4.7e-33,
+        "score": 125.8,
+        "model-ac": "SM00432"
+      }
+    ],
+    "go_terms": [],
+    "pathways": [],
+    "blast_hits": [
+      {
+        "accession": "NP_001321574",
+        "title": "ref|NP_001321574.1| K-box region and MADS-box transcription factor family protein [Arabidopsis thaliana]",
+        "length": 176,
+        "e_value": 1.48748e-49,
+        "score": 415.0,
+        "identity": 98.79518072289156,
+        "coverage": 97.6470588235294
+      },
+      {
+        "accession": "NP_974160",
+        "title": "ref|NP_974160.2| K-box region and MADS-box transcription factor family protein [Arabidopsis thaliana]",
+        "length": 173,
+        "e_value": 3.79312e-49,
+        "score": 412.0,
+        "identity": 98.79518072289156,
+        "coverage": 97.6470588235294
+      },
+      {
+        "accession": "NP_177833",
+        "title": "ref|NP_177833.3| K-box region and MADS-box transcription factor family protein [Arabidopsis thaliana]",
+        "length": 196,
+        "e_value": 5.11278e-49,
+        "score": 413.0,
+        "identity": 98.79518072289156,
+        "coverage": 97.6470588235294
+      }
+    ],
+    "structure": {
+      "pdb_file": "mapped_structures/FLM_alt.pdb",
+      "avg_pLDDT": 89.01016320474776,
+      "best_tm_score": 0.8594,
+      "best_template": "",
+      "predicted_structure_available": true
+    }
+  }
+]

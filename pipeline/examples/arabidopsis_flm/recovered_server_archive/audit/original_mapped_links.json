@@ -1,0 +1,10 @@
+[
+  {
+    "path": "case2/af3_predictions_mapped/FLM_wt.pdb",
+    "original_target": "/share/home/knliu25/ccz/as/case2/af3_predictions/fold_flm_wt_model_0.pdb"
+  },
+  {
+    "path": "case2/af3_predictions_mapped/FLM_alt.pdb",
+    "original_target": "/share/home/knliu25/ccz/as/case2/af3_predictions/fold_flm_alt_model_0.pdb"
+  }
+]

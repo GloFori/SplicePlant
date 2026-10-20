@@ -1,0 +1,102 @@
+{
+  "scope": "Sequence observations and initial annotation-import verification; original sequences preserved",
+  "source_files_sha256": {
+    "annotation_results/annotation_full.json": "ac807ea445e6e7c66ab208fdd72032b5962c49bf9803a3b78324ab0edc85b772",
+    "annotation_results/annotation_summary.tsv": "56ef110b43bba4673dbc178ffce1358dfa1feaf63e107674ff56656d1f73006e",
+    "annotation_results/blast_results.xml": "645248a2854d5c60126211a609976cfa1072261a58560e735ef92e58f491eca5",
+    "annotation_results/cleaned_sequences.fasta": "9b2fdaacba34c9bc989d9cfc4f666f526e431c39f187f2460a279f99e3641f5c",
+    "annotation_results/interproscan_results.json": "4e4fe2f0d690524b4a3546bff1be2b5fbe550b25c953bbf7f5a8bc31fa78c911",
+    "annotation_results/pipeline_summary.txt": "bc34eb87a8471fa5a9a49af2db17902ee99520cdfd3504e7926f772ae75e8fb5",
+    "annotation_results/structure_info.json": "0c25b146a043548ee5c4b4078af8dcf7603e3bd0c5720b031fdaa5f0b1f19046",
+    "annotation_results/structure_summary.tsv": "ce9642111884e6b36ab4feea035a054c24f03b46fe9c38d67f7ed59d26036ecb",
+    "case2.md": "6eaf09fbe966863723681fdd8c8aefdefd0e651e35ce169c0087cbaed3d2cc43",
+    "FLM_alt.fa": "7015f2c84d54cd41efa219e2d2da0f913b7931cf460aa38893210fd8a554ba93",
+    "FLM_alt_CDS.fa": "1643489731e268671a965f72c2d9bc1da2fec17a20ef0ad4e363d2570eb6e0b7",
+    "FLM_alt_pep.fa": "ce731dc5f6e4ff875c804ec0be602ce13d8b138dfc509994e0502502007267e8",
+    "FLM_wt.fa": "e0dd4d974b7b771822460fab66491fb8e5e72de69ebf932340a33843f1542548",
+    "FLM_wt_CDS.fa": "779e66e9cb297d2b12f74111c854fa85d4e4f2b00e246a7f60bca2c60177c083",
+    "FLM_wt_pep.fa": "3f0bb62e9822b8ed37a01592b773e3a2bdd91b0fce9f607863330a5d0e6c7ccf"
+  },
+  "blast_version": "BLASTP 2.16.0+",
+  "blast_database_label": "refseq_protein",
+  "interpro_version": "5.67-99.0",
+  "source_statement": "User identifies the CDS sequences as originating from a 2020 Nature Communications study; exact supplementary alignment not independently verified here.",
+  "cases": {
+    "FLM_wt": {
+      "protein_length": 94,
+      "protein_sha256": "06837db8933a611ccf89c88fe215b3532ef79c54fd4cb8b778d61ded800304e4",
+      "cds_length_nt": 637,
+      "cds_length_mod_3": 1,
+      "translation_stop_positions_1based": [
+        95,
+        99,
+        120,
+        126,
+        140,
+        147,
+        149,
+        162,
+        177,
+        189,
+        190,
+        198
+      ],
+      "translation_to_first_stop_matches_provided_peptide": true,
+      "replay_status": {
+        "status": "completed",
+        "stages": {
+          "blast": "completed_hits",
+          "domains": "completed",
+          "go": "completed"
+        }
+      },
+      "num_blast_hits": 5,
+      "num_domains": 8,
+      "num_go_terms": 5,
+      "structure_status": "missing",
+      "manifest_verified": true,
+      "derived_blast_xml_sha256": "6218b9141d378bb7c11551ba0ec30f6f34b6b4d9a32ee0b62a3e5086125416e3",
+      "derivation": "Select the matching Iteration; preserve all its hits, HSPs and database statistics; update only root query header fields. Original archive files unchanged.",
+      "historical_parameters_caution": "v0.3 defaults in imported-run request metadata do not establish parameters absent from the historical raw XML."
+    },
+    "FLM_alt": {
+      "protein_length": 85,
+      "protein_sha256": "cf0c70d799d70e70161b4d0f799da7de899a4919528bf2712923cf977db74dbb",
+      "cds_length_nt": 654,
+      "cds_length_mod_3": 0,
+      "translation_stop_positions_1based": [
+        86,
+        218
+      ],
+      "translation_to_first_stop_matches_provided_peptide": true,
+      "replay_status": {
+        "status": "completed",
+        "stages": {
+          "blast": "completed_hits",
+          "domains": "completed",
+          "go": "completed"
+        }
+      },
+      "num_blast_hits": 5,
+      "num_domains": 8,
+      "num_go_terms": 5,
+      "structure_status": "missing",
+      "manifest_verified": true,
+      "derived_blast_xml_sha256": "a2f77427645e34edf45b4b8ab9ac7cd0dddc0f92a43a386747e12d45647b21c7",
+      "derivation": "Select the matching Iteration; preserve all its hits, HSPs and database statistics; update only root query header fields. Original archive files unchanged.",
+      "historical_parameters_caution": "v0.3 defaults in imported-run request metadata do not establish parameters absent from the historical raw XML."
+    }
+  },
+  "structure_files_supplied": false,
+  "pairwise_sequence_observation": {
+    "identical_prefix_aa": 81,
+    "wt_tail": "DRSAVQAGETSMF",
+    "alt_tail": "FLVL"
+  },
+  "earlier_genomic_attachment_exact_matches": {
+    "FLM_wt.fa": true,
+    "FLM_alt.fa": true
+  },
+  "model_calls_performed_during_initial_replay": false,
+  "historical_model_analysis": "completed previously, as confirmed by the author; original case2.md included"
+}

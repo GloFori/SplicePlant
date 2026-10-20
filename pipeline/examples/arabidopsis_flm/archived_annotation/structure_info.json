@@ -1,0 +1,18 @@
+{
+  "FLM_wt": {
+    "source": "AF3_local",
+    "pdb_path": "UNAVAILABLE_STRUCTURE/FLM_wt.pdb",
+    "plddt": 87.77902173913041,
+    "best_match": "UNAVAILABLE_STRUCTURE/AFDB_Q38836.pdb",
+    "tm_score": 0.82494,
+    "structure_score": 93.88951086956521
+  },
+  "FLM_alt": {
+    "source": "AF3_local",
+    "pdb_path": "UNAVAILABLE_STRUCTURE/FLM_alt.pdb",
+    "plddt": 89.01016320474776,
+    "best_match": "UNAVAILABLE_STRUCTURE/AFDB_Q38836.pdb",
+    "tm_score": 0.8594,
+    "structure_score": 94.50508160237388
+  }
+}

@@ -1,0 +1,9 @@
+accession	name	database	interpro_accession	interpro_name	e_value	score	annotation_method
+G3DSA:3.40.1810.10		GENE3D	IPR036879	TF_MADSbox_sf	1.8e-22	81.0	InterProScan exact query
+G3DSA:3.40.1810.10:FF:000020	MADS-box protein FLOWERING LOCUS C	FUNFAM			2.1e-44	151.2	InterProScan exact query
+PF00319	SRF-TF	PFAM	IPR002100	TF_MADSbox	2.2e-19	79.9	InterProScan exact query
+PR00404	MADSDOMAIN	PRINTS	IPR002100	TF_MADSbox	4.7e-24		InterProScan exact query
+PS50066	MADS_BOX_2	PROSITE_PROFILES	IPR002100	TF_MADSbox			InterProScan exact query
+PTHR48019	SERUM RESPONSE FACTOR HOMOLOG	PANTHER	IPR050142	MADS-box/MEF2_TF	9.9e-32	122.3	InterProScan exact query
+SM00432	madsneu2	SMART	IPR002100	TF_MADSbox	4.7e-33	125.8	InterProScan exact query
+SSF55455	SRF-like	SUPERFAMILY	IPR036879	TF_MADSbox_sf	1.7e-26		InterProScan exact query

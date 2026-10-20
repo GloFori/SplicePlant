@@ -1,0 +1,38 @@
+[
+  {
+    "file": "canonical_inputs/FLM_wt_CDS.fa",
+    "source": "https://github.com/GloFori/SplicePlant/blob/94ae36cdeb7bad110da96e90afcec355943400bb/pipeline/examples/arabidopsis_flm/input/FLM_wt_CDS.fa",
+    "git_blob_sha": "2823a67648605dc6d42af4b45d67e13ff9ceb16d",
+    "sha256": "779e66e9cb297d2b12f74111c854fa85d4e4f2b00e246a7f60bca2c60177c083"
+  },
+  {
+    "file": "canonical_inputs/FLM_alt_CDS.fa",
+    "source": "https://github.com/GloFori/SplicePlant/blob/94ae36cdeb7bad110da96e90afcec355943400bb/pipeline/examples/arabidopsis_flm/input/FLM_alt_CDS.fa",
+    "git_blob_sha": "50563d769c287692e01c6010eadfe026b941a4e4",
+    "sha256": "1643489731e268671a965f72c2d9bc1da2fec17a20ef0ad4e363d2570eb6e0b7"
+  },
+  {
+    "file": "canonical_inputs/FLM_wt.fa",
+    "source": "https://github.com/GloFori/SplicePlant/blob/94ae36cdeb7bad110da96e90afcec355943400bb/pipeline/examples/arabidopsis_flm/input/FLM_wt.fa",
+    "git_blob_sha": "6d77fb59224b309e0aeb1b9578b9981986726599",
+    "sha256": "e0dd4d974b7b771822460fab66491fb8e5e72de69ebf932340a33843f1542548"
+  },
+  {
+    "file": "canonical_inputs/FLM_alt.fa",
+    "source": "https://github.com/GloFori/SplicePlant/blob/94ae36cdeb7bad110da96e90afcec355943400bb/pipeline/examples/arabidopsis_flm/input/FLM_alt.fa",
+    "git_blob_sha": "6f2863b7f61ea81c2f0f7458323c0b62a07c9edb",
+    "sha256": "7015f2c84d54cd41efa219e2d2da0f913b7931cf460aa38893210fd8a554ba93"
+  },
+  {
+    "file": "canonical_inputs/FLM_wt_pep.fa",
+    "source": "https://github.com/GloFori/SplicePlant/blob/94ae36cdeb7bad110da96e90afcec355943400bb/pipeline/examples/arabidopsis_flm/input/FLM_wt_pep.fa",
+    "git_blob_sha": "8ccd33c399ea23e9e0cc547350ce871a3b5ec031",
+    "sha256": "3f0bb62e9822b8ed37a01592b773e3a2bdd91b0fce9f607863330a5d0e6c7ccf"
+  },
+  {
+    "file": "canonical_inputs/FLM_alt_pep.fa",
+    "source": "https://github.com/GloFori/SplicePlant/blob/94ae36cdeb7bad110da96e90afcec355943400bb/pipeline/examples/arabidopsis_flm/input/FLM_alt_pep.fa",
+    "git_blob_sha": "acf63db0fdfcbad3f570529589fda4e013b85223",
+    "sha256": "ce731dc5f6e4ff875c804ec0be602ce13d8b138dfc509994e0502502007267e8"
+  }
+]

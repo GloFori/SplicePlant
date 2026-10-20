@@ -8,25 +8,12 @@ from typing import Optional, Dict, Tuple, List
 # ---------------- DNA utils ----------------
 DNA_VOCAB = {"A": 0, "C": 1, "G": 2, "T": 3}
 
-def read_fasta_one(path: str) -> Tuple[str, str]:
-    name = None
-    seq_lines = []
-    with open(path, "r") as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-            if line.startswith(">"):
-                if name is None:
-                    name = line[1:].split()[0]
-                else:
-                    break
-            else:
-                if name is not None:
-                    seq_lines.append(line)
-    if name is None:
-        raise ValueError("Empty/invalid FASTA: %s" % path)
-    return "".join(seq_lines), name
+def read_fasta_one(path):
+    records = read_fasta(path)
+    if len(records) != 1:
+        raise ValueError("Provide exactly one FASTA record; this scorer does not silently discard later records.")
+    name, sequence = records[0]
+    return sequence, name.split()[0]
 
 def one_hot_encode(seq: str) -> np.ndarray:
     s = seq.upper()
@@ -51,6 +38,8 @@ def apply_single_edit(seq: str, edit: str) -> Tuple[str, Dict]:
 
     i = pos1 - 1
     wt = seq[i].upper()
+    if m.group(3) is not None and wt != ref:
+        raise ValueError(f"Reference mismatch at {pos1}: expected {ref}, found {wt}")
     mut = list(seq)
     mut[i] = alt
     return "".join(mut), {"pos1": pos1, "wt_base": wt, "ref": ref, "alt": alt}
@@ -120,105 +109,11 @@ def align_probs_after_deletion(p_mut_raw: np.ndarray, L_wt: int, start0: int, de
     return p_mut_aligned
 
 # ---------------- Model ----------------
-class ResBlock(nn.Module):
-    def __init__(self, L, W, AR):
-        super().__init__()
-        self.bn1 = nn.BatchNorm1d(L)
-        self.conv1 = nn.Conv1d(L, L, W, dilation=AR, padding="same")
-        self.bn2 = nn.BatchNorm1d(L)
-        self.conv2 = nn.Conv1d(L, L, W, dilation=AR, padding="same")
-
-    def forward(self, x):
-        out = self.bn1(x)
-        out = torch.relu(out)
-        out = self.conv1(out)
-        out = self.bn2(out)
-        out = torch.relu(out)
-        out = self.conv2(out)
-        return out + x
-
-try:
-    from sinkhorn_transformer import SinkhornTransformer  # type: ignore
-    SINKHORN_AVAILABLE = True
-except Exception:
-    SINKHORN_AVAILABLE = False
-
-class AttnBlock(nn.Module):
-    def __init__(self, dim=40, pos_len=1200, depth=6, causal=False, reversible=False):
-        super().__init__()
-        self.pos_emb = nn.Embedding(pos_len, dim)
-        if SINKHORN_AVAILABLE:
-            self.attn = SinkhornTransformer(
-                dim, depth,
-                heads=8, n_local_attn_heads=2,
-                attn_layer_dropout=0.1, layer_dropout=0.1,
-                ff_dropout=0.1, ff_chunks=10,
-                causal=causal, reversible=reversible, non_permutative=True
-            )
-        else:
-            self.attn = nn.Identity()
-        self.norm = nn.LayerNorm(dim)
-
-    def forward(self, x):  # [B, dim, L']
-        b, dim, Lp = x.size()
-        pos_idx = torch.arange(0, Lp, device=x.device).unsqueeze(0).expand(b, Lp)
-        x = x.transpose(1, 2).contiguous()  # [B, L', dim]
-        x = x + self.pos_emb(pos_idx)
-        x = self.attn(x)
-        x = self.norm(x)
-        x = x.transpose(1, 2).contiguous()
-        return x
-
-class SpEncoder(nn.Module):
-    def __init__(self, L=50):
-        super().__init__()
-        self.W = np.asarray([11,11,11,11,11,11,11,11, 21,21,21,21,21,21,21,21])
-        self.AR= np.asarray([ 1, 1, 1, 1, 4, 4, 4, 4, 10,10,10,10,20,20,20,20])
-        self.conv1 = nn.Conv1d(4, L, 1)
-        self.skip  = nn.Conv1d(L, L, 1)
-        self.resblocks, self.convs = nn.ModuleList(), nn.ModuleList()
-        for i in range(len(self.W)):
-            self.resblocks.append(ResBlock(L, int(self.W[i]), int(self.AR[i])))
-            if ((i+1) % 4 == 0) or ((i+1) == len(self.W)):
-                self.convs.append(nn.Conv1d(L, L, 1))
-        self.splice_output = nn.Conv1d(L, 40, 1)
-
-    def forward(self, x):               # [B, L, 4]
-        x = x.permute(0, 2, 1)          # [B, 4, L]
-        conv = self.conv1(x)
-        skip = self.skip(conv)
-        j = 0
-        for i in range(len(self.W)):
-            conv = self.resblocks[i](conv)
-            if ((i+1) % 4 == 0) or ((i+1) == len(self.W)):
-                dense = self.convs[j](conv)
-                j += 1
-                skip = skip + dense
-        out = self.splice_output(skip)  # [B, 40, L]
-        return out
-
-class StudentModel(nn.Module):
-    def __init__(self, output_classes=3, dim=40, seq_len=401):
-        super().__init__()
-        self.encoder = SpEncoder(L=50)
-        self.attn    = AttnBlock(dim=dim, pos_len=max(1200, seq_len))
-        self.fc1     = nn.Linear(seq_len, 512)
-        self.conv1   = nn.Conv1d(dim, output_classes, 1)
-        self.relu    = nn.ReLU()
-        self.dropout = nn.Dropout(0.2)
-        self.fc2     = nn.Linear(512, 1)
-
-    def forward(self, x):               # [B, L, 4]
-        x = self.encoder(x)             # [B, 40, L]
-        x = self.fc1(x)                 # [B, 40, 512]
-        x = self.relu(x)
-        x = self.attn(x)                # [B, 40, 512]
-        x = self.conv1(x)               # [B, 3, 512]
-        x = self.dropout(x)
-        x = self.fc2(x)                 # [B, 3, 1]
-        x = torch.mean(x, dim=2)        # [B, 3]
-        return x
-
+from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "inference"))
+from spliceplant_model import StudentModel, load_student, read_checkpoint, checkpoint_window
+from spliceplant_inputs import read_fasta, read_labeled_csv
 
 # ---------------- Scoring + Calling ----------------
 def infer_win_from_ckpt(state: Dict) -> Optional[int]:
@@ -227,13 +122,8 @@ def infer_win_from_ckpt(state: Dict) -> Optional[int]:
             return int(state[k].shape[1])
     return None
 
-def load_state_dict_any(ckpt_path: str, device: torch.device) -> Dict:
-    state = torch.load(ckpt_path, map_location=device)
-    if isinstance(state, dict) and "state_dict" in state and isinstance(state["state_dict"], dict):
-        state = state["state_dict"]
-    if not isinstance(state, dict):
-        raise RuntimeError("Checkpoint is not a state_dict or {'state_dict':...}")
-    return state
+def load_state_dict_any(ckpt_path, device=None):
+    return read_checkpoint(ckpt_path)
 
 def score_per_base(seq: str, model: nn.Module, win: int, batch_size: int, device: torch.device) -> np.ndarray:
     if win % 2 == 0:
@@ -327,7 +217,7 @@ def write_calls_tsv(out_path: str, name: str, calls: List[Tuple[int, float, floa
 
 def parse_args():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--fasta", required=True, help="Input FASTA (first record only).")
+    ap.add_argument("--fasta", required=True, help="Input FASTA with exactly one record, in the orientation to be scored.")
     ap.add_argument("--ckpt", required=True, help="Model weights .pth")
     ap.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     ap.add_argument("--batch-size", type=int, default=128)
@@ -358,26 +248,13 @@ def main():
 
     seq, name = read_fasta_one(args.fasta)
 
-    state = load_state_dict_any(args.ckpt, device)
-    win = args.win
-    if win == 0:
-        win = infer_win_from_ckpt(state)
-        if win is None:
-            raise RuntimeError("Cannot infer --win from checkpoint. Please set --win manually.")
-    if win % 2 == 0:
-        raise RuntimeError("--win must be odd, got %d" % win)
-
-    model = StudentModel(output_classes=3, dim=40, seq_len=win).to(device)
-
-    try:
-        model.load_state_dict(state, strict=True)
-    except RuntimeError as e:
-        if (not SINKHORN_AVAILABLE) and ("Missing key(s)" in str(e) or "Unexpected key(s)" in str(e)):
-            raise RuntimeError(
-                "Checkpoint likely trained with sinkhorn_transformer, but it's not available here.\n"
-                "Install the same dependency or run in the training environment.\n\n" + str(e)
-            )
-        raise
+    if args.batch_size < 1 or args.nms_radius < 0 or args.topn < 1:
+        raise ValueError("batch-size/topn must be positive; nms-radius must be nonnegative")
+    if args.win < 0 or not 0 <= args.min_prob <= 1 or not -1 <= args.min_margin <= 1:
+        raise ValueError("Invalid window or probability thresholds")
+    model, win = load_student(args.ckpt, device, window=args.win)
+    Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+    Path(args.call_prefix).parent.mkdir(parents=True, exist_ok=True)
 
     # WT
     p_wt = score_per_base(seq, model, win=win, batch_size=args.batch_size, device=device)
@@ -410,9 +287,9 @@ def main():
     # Calling on WT only
     p_for_calling = p_wt
     if (args.edit or args.del_motif) and (p_mut is not None):
-        p_for_calling = np.nan_to_num(p_mut, nan=0.0)
+        p_for_calling = p_mut
 
-    label_suffix = "mut" if args.edit else "wt"
+    label_suffix = "mut" if (args.edit or args.del_motif) else "wt"
     print(f"Calling peaks on {label_suffix} sequence...")
 
     donor_calls = call_peaks(p_for_calling, cls=1,
@@ -439,3 +316,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

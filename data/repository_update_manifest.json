@@ -1,0 +1,179 @@
+{
+  "repository": "https://github.com/GloFori/SplicePlant",
+  "branch": "pre-pipline",
+  "base_commit": "1b7bc37685fadb1d74371d505c3219facc384b84",
+  "prepared_on": "2026-10-17",
+  "installation": "Overlay these relative paths onto the existing repository root.",
+  "top_level_directories_preserved": [
+    "attribution",
+    "data",
+    "inference",
+    "pipeline",
+    "training"
+  ],
+  "pipeline_included": false,
+  "published_to_github": false,
+  "files": [
+    {
+      "path": ".gitignore",
+      "action": "add",
+      "sha256": "44d0bd596843e885da2ea076ae9ceb5369316b6b895f59121f376af432caa2be",
+      "bytes": 115,
+      "original_git_blob": null
+    },
+    {
+      "path": "attribution/compute_contributions.py",
+      "action": "replace",
+      "sha256": "223ce2686a86972b3899f53f721e7f257100be699295e295e36a03c31c0118fe",
+      "bytes": 13584,
+      "original_git_blob": "ea8da2a87df6df40712ea8d6095f11aeae31c15b"
+    },
+    {
+      "path": "attribution/README.md",
+      "action": "add",
+      "sha256": "640823b51edb1355e47cbe1ce68cd76077e8659323d437e5906a02584eb9882d",
+      "bytes": 3277,
+      "original_git_blob": null
+    },
+    {
+      "path": "data/demo/toy_dna.fa",
+      "action": "add",
+      "sha256": "84edd3299bd8d69e39b5b1f9cd09372ce281cd285651b7e7da491bd0b8d34d32",
+      "bytes": 73,
+      "original_git_blob": null
+    },
+    {
+      "path": "data/download_assets.py",
+      "action": "add",
+      "sha256": "b6b367e25dfebfe7eedd9cf92d25d714665b0057bd3f591d60aa0246be65b3f5",
+      "bytes": 5014,
+      "original_git_blob": null
+    },
+    {
+      "path": "data/Explanation",
+      "action": "replace",
+      "sha256": "43779eb9b47c0105e205d604cffe1d694cb9c65706e7d998ad84fc726742f265",
+      "bytes": 308,
+      "original_git_blob": "d1c6f394c5ddd3df0a1b4e1dcca7e2c3dd16c8c1"
+    },
+    {
+      "path": "data/README.md",
+      "action": "add",
+      "sha256": "005f5fc805017e56b3b66c289ee2debda97458dc7ae8bb2d866bb8b37b06a831",
+      "bytes": 4203,
+      "original_git_blob": null
+    },
+    {
+      "path": "data/zenodo_assets.json",
+      "action": "add",
+      "sha256": "e410f0fe9cf3ebaf5ad2d2bc54dbd1dc9050db407b70d78356ec2875999ccb64",
+      "bytes": 4517,
+      "original_git_blob": null
+    },
+    {
+      "path": "inference/MAINTENANCE.md",
+      "action": "add",
+      "sha256": "379d1c1c167fadbe14d019bbfd40f91cc1e5159958c83d92bac34fe25bade2a9",
+      "bytes": 5476,
+      "original_git_blob": null
+    },
+    {
+      "path": "inference/predict.py",
+      "action": "replace",
+      "sha256": "1a498269097db037d1e1e2e7320b792048b77335a1523413903ff9765bbbdfb6",
+      "bytes": 4691,
+      "original_git_blob": "c63c14ee3b74c3c79f79639616da169dad005b53"
+    },
+    {
+      "path": "inference/predict_labels.py",
+      "action": "replace",
+      "sha256": "0bea810b8fcf7e0d86d26703d77e13e9d0dd3e92efc8fa97b908ff26e40d3290",
+      "bytes": 8221,
+      "original_git_blob": "041e0e74166b01f841290570b7dccaef2f8d6654"
+    },
+    {
+      "path": "inference/README.md",
+      "action": "add",
+      "sha256": "8dce00a0ea6d1bbffebfeef3e369af4679308d0cf3c2052ee7959902e5fde857",
+      "bytes": 4752,
+      "original_git_blob": null
+    },
+    {
+      "path": "inference/score_sequence_per_base.py",
+      "action": "replace",
+      "sha256": "3a6170372a3e22c41ed4ceb911edf68fe4b5363c64015829c61d96acf8a8dec0",
+      "bytes": 12662,
+      "original_git_blob": "25f69b4fd3ef3353b202ff614bf728d2bc3d3c55"
+    },
+    {
+      "path": "inference/spliceplant_inputs.py",
+      "action": "add",
+      "sha256": "3f8eb523ab7bc64693e4f5e7f08325d5b0c1624ed60dc3bcc640ee88ce8c5307",
+      "bytes": 2311,
+      "original_git_blob": null
+    },
+    {
+      "path": "inference/spliceplant_model.py",
+      "action": "add",
+      "sha256": "e2140b63f0d3b75d1aa643f9a1470407c6f35272321d9ff39a028ce70c323384",
+      "bytes": 5184,
+      "original_git_blob": null
+    },
+    {
+      "path": "inference/tests/test_sequence_tools.py",
+      "action": "add",
+      "sha256": "ec1a208b89ab408d206247ae6077988e69decbd924e0084804386301fd23dc4e",
+      "bytes": 6826,
+      "original_git_blob": null
+    },
+    {
+      "path": "inference/validation.json",
+      "action": "add",
+      "sha256": "94f7c56945cde1fe0e19c2b9ea52729a31bde87cb7aec0ce6a4a9a63627afd58",
+      "bytes": 1104,
+      "original_git_blob": null
+    },
+    {
+      "path": "README.md",
+      "action": "replace",
+      "sha256": "5a751eddcbc106090ecb6430c8e13f5c9154fd1d06f7118b5dff72a6c7e35afb",
+      "bytes": 11966,
+      "original_git_blob": "91ae6fb482816666fff11f73542767b79af54911"
+    },
+    {
+      "path": "requirements.txt",
+      "action": "add",
+      "sha256": "673e3d043dfa0fb59ad48bf8f6587d3fcaba40e48f3775f4d5eef217f6aa118c",
+      "bytes": 481,
+      "original_git_blob": null
+    },
+    {
+      "path": "training/ge_demo_data.py",
+      "action": "replace",
+      "sha256": "b8d90b92a9bd3efac1b6f6f7085e50d14df8f3c71d5c1c03412360a96dfe433d",
+      "bytes": 5195,
+      "original_git_blob": "b5a90d6a110f7d29235f2abb062a9f580e47a6bc"
+    },
+    {
+      "path": "training/kd_splice.py",
+      "action": "replace",
+      "sha256": "30f9cfb608ae53d727cec97675a29a772a17d9b5fbaedb177717660b53606827",
+      "bytes": 12816,
+      "original_git_blob": "a1cfc0ee9a8d5bee3db8cd922f1ba639d219c4e6"
+    },
+    {
+      "path": "training/README.md",
+      "action": "add",
+      "sha256": "82d67dd6ec4f087b9fed1bc2e0239f610d27db58cb3afeb44ea5fb4ed4c5b67f",
+      "bytes": 3518,
+      "original_git_blob": null
+    },
+    {
+      "path": "training/requirements.txt",
+      "action": "replace",
+      "sha256": "e2cdcd5bd2c5562e1afdd02ee26cba7b52fe44311d6fcbd7a49b0c95de6ea397",
+      "bytes": 1536,
+      "original_git_blob": "98511e6f2412c798b12606534a8e0523891f750f"
+    }
+  ]
+}
